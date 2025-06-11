@@ -21,4 +21,5 @@ from img.views import ImgList
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path("", include("img.urls"), name="img-urls"),
 ]

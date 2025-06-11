@@ -5,5 +5,5 @@ from .models import Img, Comment
 class ImgList(generic.ListView):
     model = Img
     queryset = Img.objects.filter(author=1)
-    template_name = ""
+    template_name = "img/index.html"
     paginate_by = 6

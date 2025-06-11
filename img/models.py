@@ -12,6 +12,7 @@ class Img(models.Model):
                ('published', 'Published')
     )
     image = models.ImageField()
+    slug = models.SlugField(max_length=200, unique=True)
     title = models.CharField(max_length=200, unique=True)
     caption = models.CharField(max_length=1000, unique=True)
     author = models.ForeignKey(
@@ -21,7 +22,6 @@ class Img(models.Model):
         User, related_name='favourite', default=None, blank=True)
     status = models.CharField(max_length=10, choices=options, default='draft')
     created_on = models.DateTimeField(auto_now_add=True)
-    
     updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:

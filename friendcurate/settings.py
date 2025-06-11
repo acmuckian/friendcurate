@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-@=vb*25kw%f*4x0!^0$khjqe4t(4vumr)mp@)u^kgg3*lz55vq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '','.herokuapp.com']
+ALLOWED_HOSTS = [ '127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'friendcurate.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
