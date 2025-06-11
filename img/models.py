@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -11,7 +12,7 @@ class Img(models.Model):
     options = ( ( 'draft', 'Draft'),
                ('published', 'Published')
     )
-    image = models.ImageField()
+    image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
     title = models.CharField(max_length=200, unique=True)
     caption = models.CharField(max_length=1000, unique=True)
