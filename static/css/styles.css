@@ -1,0 +1,12 @@
+:root {
+  --header-font: "Rubik 80s Fade", serif;
+  --body-font: "Lexend", system-ui;
+}
+#header {
+    font-family: var(--header-font) !important;
+    font-size: 4rem;
+}
+
+.navbar-brand {
+    font-family: var(--header-font);
+}

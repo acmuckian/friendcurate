@@ -4,6 +4,6 @@ from .models import Img, Comment
 # Create your views here.
 class ImgList(generic.ListView):
     model = Img
-    queryset = Img.objects.filter(author=1)
+    queryset = Img.objects.all()
     template_name = "img/index.html"
     paginate_by = 6
