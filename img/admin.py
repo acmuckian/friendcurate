@@ -3,12 +3,10 @@ from .models import Img, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 class ImgAdmin(SummernoteModelAdmin):
+    list_display = ('title', 'status')
+    search_fields = ['title']
+    list_filter = ('status',)
+    summernote_fields = ('caption',)
 
-        list_display = ('title', 'slug', 'status')
-        search_fields = ['title']
-        list_filter = ('status',)
-        prepopulated_fields = {'caption': ('title',)}
-        summernote_fields = ('content',)
-
-admin.site.register(Img)
+admin.site.register(Img, ImgAdmin)
 admin.site.register(Comment)
