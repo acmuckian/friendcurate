@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 
 class Img(models.Model):
-    options = ( ( 'draft', 'Draft')
+    options = ( ( 'draft', 'Draft'),
                ('published', 'Published')
     )
     image = models.ImageField()
