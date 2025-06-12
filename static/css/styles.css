@@ -10,6 +10,8 @@
 
 body {
     font-family: var(--body-font), system-ui, sans-serif;
+    background-image: url("/static/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg") !important;
+
 }
 
 .navbar-brand {
@@ -17,8 +19,19 @@ body {
     font-size: 2.5rem;
 }
 
-h3 {
+body h3 {
     font-family: 'Press Start 2P', var(--subtitle-font), serif !important;
     font-size: 1.5rem;
-    color:rgb(87, 66, 38)
+    color: rgb(87, 66, 38);
+}
+
+#commentbutton {
+    font-family:var(--subtitle-font);
+    color: #04AA6D;
+}
+
+#commentbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
