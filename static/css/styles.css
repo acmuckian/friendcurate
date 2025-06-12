@@ -1,12 +1,24 @@
 :root {
   --header-font: "Rubik 80s Fade", serif;
   --body-font: "Lexend", system-ui;
+  --subtitle-font: "Press Start 2P", serif;
 }
 #header {
     font-family: var(--header-font) !important;
     font-size: 4rem;
 }
 
+body {
+    font-family: var(--body-font), system-ui, sans-serif;
+}
+
 .navbar-brand {
     font-family: var(--header-font);
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-family: 'Press Start 2P', var(--subtitle-font), serif !important;
+    font-size: 1.5rem;
+    color:rgb(87, 66, 38)
 }

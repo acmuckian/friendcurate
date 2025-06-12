@@ -7,6 +7,7 @@ class ImgAdmin(SummernoteModelAdmin):
     search_fields = ['title']
     list_filter = ('status',)
     summernote_fields = ('caption',)
+    prepopulated_fields = {"slug": ("title",)}
 
 admin.site.register(Img, ImgAdmin)
 admin.site.register(Comment)
