@@ -1,6 +1,7 @@
 :root {
   --header-font: "Rubik 80s Fade", serif;
   --body-font: "Lexend", system-ui;
+  --subheading-font: "Cabin Sketch", serif;
   --subtitle-font: "Press Start 2P", serif;
 }
 #header {
@@ -19,6 +20,14 @@ body {
     font-size: 2.5rem;
 }
 
+body h2 {
+    font-family: var(--subheading-font), serif !important;
+    font-size: 2rem;
+    color: rgb(66, 50, 50);
+}
+
+
+
 body h3 {
     font-family: 'Press Start 2P', var(--subtitle-font), serif !important;
     font-size: 1.5rem;
@@ -34,4 +43,7 @@ body h3 {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+#logout {
+    background-color:rgba(176, 176, 176, 0.482)
 }
