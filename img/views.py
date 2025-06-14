@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from django.http import HttpResponse
 from .models import Img, Comment
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 class ImgList(generic.ListView):
     model = Img
@@ -33,4 +35,22 @@ def img_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+@login_required
+def add_favourite(request, id):
+    img = get_object_or_404(Img, id=id)
+    if img.favourites.filter(id=request.user.id).exists():
+        img.favourites.remove(request.user)
+    else:
+        img.favourites.add(request.user)
+    return redirect('img_detail', slug=img.slug)
 
+@login_required
+
+def my_favourites(request):
+    favourite_images = Img.objects.filter(favourites=request.user, status='published')
+
+    return render(
+        request,
+        'img/favourites.html',
+        {"favourite_images": favourite_images}
+    )
