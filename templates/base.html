@@ -4,6 +4,7 @@
 {% url 'login' as login_url %}
 {% url 'logout' as logout_url %}
 {% url 'register' as register_url %}
+{% url 'my_favourites' as my_favourites %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +34,9 @@
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'my_favourites' %}">Favourites</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>

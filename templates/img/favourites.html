@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="card-group">
+    {% for favourite in favourite_images %}
+    <div class="card">
+        <img src="{{ favourite.image.url }}" class="card-img-top" alt="{{ favourite.caption }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ favourite.title }} by {{ favourite.author }}</h5>
+        </div>
+        {% empty %}
+
+        <p> This is where you can add your favourite images. Go to the gallery and add one!</p>
+
+        {% endfor %}
+    </div>
+
+    {% endblock %}
