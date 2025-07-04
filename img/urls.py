@@ -6,4 +6,5 @@ urlpatterns = [
     path('fav/<int:id>/', views.add_favourite, name='add_favourite'),
     path('favourites/', views.my_favourites, name="my_favourites"),
     path('<slug:slug>/', views.img_detail, name="img_detail"),
+    path('delete/<int:id>/', views.delete_image, name='delete_image'),
 ]
