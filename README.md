@@ -14,6 +14,12 @@
 
 ## UX 
 
+### Colour Scheme 
+
+![Friendcurate Palette](static/images/Friendcurate-palette.png)
+
+The colour scheme for Friendcurate was selected from an image of a charcoal sketch, as it was fitting for the site's palette as a social network and image hosting site primarily aimed at artists with sufficient contrast. Also, the grey shades were selected to allow the user-uploaded images to pop out in the gallery. 
+
 ### Wireframes 
 
 https://wireframe.cc/5UDuvW
