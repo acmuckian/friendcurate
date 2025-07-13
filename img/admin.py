@@ -4,6 +4,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 class ImgAdmin(SummernoteModelAdmin):
     list_display = ('title', 'status')
+    fields = ('title', 'slug', 'caption', 'image', 'author', 'favourites', 'status')
     search_fields = ['title']
     list_filter = ('status',)
     summernote_fields = ('caption',)
