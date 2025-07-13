@@ -37,13 +37,11 @@ body h3 {
 .carousel-dark .carousel-caption {
     background-color: rgba(176, 176, 176, 0.482);
 }
-.card {
+.card-text {
     height: 200px;
-    overflow: auto;
+    background-color: #D3D1C4!important;
 }
-.card-img-top {
-    
-}
+
 /* on the html page for single pictures */ 
 #commentbutton {
     font-family:var(--subtitle-font);
