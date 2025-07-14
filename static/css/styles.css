@@ -1,9 +1,10 @@
 :root {
-  --header-font: "Rubik 80s Fade", serif;
-  --body-font: "Lexend", system-ui;
-  --subheading-font: "Cabin Sketch", serif;
-  --subtitle-font: "Press Start 2P", serif;
+    --header-font: "Rubik 80s Fade", serif;
+    --body-font: "Lexend", system-ui;
+    --subheading-font: "Cabin Sketch", serif;
+    --subtitle-font: "Press Start 2P", serif;
 }
+
 #header {
     font-family: var(--header-font) !important;
     font-size: 4rem;
@@ -33,39 +34,73 @@ body h3 {
     font-size: 1.5rem;
     color: rgb(87, 66, 38);
 }
-/* on the index.html page */ 
+
+/* on the index.html page */
 .carousel-dark .carousel-caption {
     background-color: rgba(176, 176, 176, 0.482);
+    border-radius: 15px;
 }
+
+.carousel-dark .carousel-caption:focus,
+.carousel-dark .carousel-caption:active,
+.carousel-dark .carousel-caption:hover {
+    transform: skew(5deg, 5deg);
+}
+
+.carousel-control-next-icon {
+    color: #636354;
+}
+
 .card {
-    background-color: #D3D1C4!important;
+    background-color: #D3D1C4 !important;
+    border: none;
+    border-radius: 0;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.card-img-top:hover {
+    transform: skew(5deg, 5deg);
 }
 
 .card-body {
-    height: 200px;
-    background-color: #D3D1C4!important;
+    height:150px; 
+    background-color: #D3D1C4 !important;
 }
 
 
 .btn.btn-primary {
     background-color: #303124 !important;
     border-color: #303124 !important;
-
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important; 
+  
 }
-/* on the html page for single pictures */ 
+
+.btn.btn-primary:hover {
+     box-shadow: 1px 1px 0px 0px #4a4a3b, 2px 2px 0px 0px #4a4a3b, 3px 3px 0px 0px #4a4a3b, 4px 4px 0px 0px #4a4a3b, 5px 5px 0px 0px #4a4a3b!important; 
+     color:#D3D1C4;
+}
+
+/* on the html page for single pictures */
 #commentbutton {
-    font-family:var(--subtitle-font);
+    font-family: var(--subtitle-font);
     color: #04AA6D;
 }
 
 #commentbutton:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
-/* logout page css */ 
+
+/* logout page css */
 #logout {
-    background-color:rgba(176, 176, 176, 0.482)
+    background-color: rgba(176, 176, 176, 0.482)
 }
-
-
