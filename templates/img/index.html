@@ -16,7 +16,7 @@
         <img src="{{ img.image.url|add:'?h_400' }}" class="d-block w-100" alt="{{ img.title }}">
         <div class="carousel-caption d-none d-md-block">
           <h5><a href="{% url 'img_detail' img.slug %}">{{ img.title }} by {{ img.author }}</a></h5>
-          <p>{{ img.caption }}</p>
+          <p>{{ img.caption | safe }}</p>
         </div>
       </div>
     {% endfor %}
@@ -42,7 +42,6 @@
                 <img src="{{ img.image.url }}" class="card-img-top" alt="{{ img.title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ img.title }}</h5>
-                    <p class="card-text">{{ img.caption | safe }}</p>
                     <p class="card-text"><small class="text-muted">by {{ img.author }}</small></p>
                     <a href="#" class="btn btn-primary">View Details</a>
                 </div>
