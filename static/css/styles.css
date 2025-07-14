@@ -88,6 +88,12 @@ body h3 {
      color:#D3D1C4;
 }
 
+footer {
+    background-color:#303124;
+    color:#D3D1C4;
+    padding-top:10px;
+}
+
 /* on the html page for single pictures */
 #commentbutton {
     font-family: var(--subtitle-font);
