@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'img',
+    'about',
 ]
 
 SITE_ID = 1

@@ -65,17 +65,20 @@
         <div class="container">
             <div class="row">
                 <p class="col text-center">
-                    {% block copyright %}Made by AM{% endblock copyright %}
+                    {% block copyright %} Friendcurate | Made by AM{% endblock copyright %}
                 </p>
                 <p class="col text-center">Follow us: <i class="fab fa-facebook-square ms-3"></i>
                     <i class="fab fa-twitter-square ms-3"></i>
                     <i class="fab fa-instagram-square ms-3"></i>
                     <i class="fab fa-youtube-square ms-3"></i>
                 </p>
-                <div class="col text-center">
-                    <p><i class="far fa-bell"></i> Subscribe to Our Weekly Newsletter: </p>
-                    <input id="email" name="email" type="email" class="form-control" placeholder="Email address"
-                        required>
+                <div class="col text-center dropup-center dropup">
+                    <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="far fa-bell"></i> Subscribe to Our Weekly Newsletter: </p>
+                    <ul class="dropdown-menu">
+                        <input id="email" name="email" type="email" class="form-control" placeholder="Email address"
+                            required>
+                    </ul>
                 </div>
             </div>
         </div>
