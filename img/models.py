@@ -49,19 +49,18 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
         
-    class Profile(models.Model):
+class Profile(models.Model):
         user = models.OneToOneField(User, on_delete=models.CASCADE)
         avatar = models.ImageField( default='default.jpg', upload_to='profile_pics')
         bio = models.TextField(max_length=500, blank=True)
 
-    def clean(self):
-        if not self.avatar:
-            raise ValidationError("Avatar image is required.")
-        else:
-            w, h = get_image_dimensions(self.avatar)
+        def clean(self):
+            if not self.avatar:
+                raise ValidationError("Avatar image is required.")
+            else:
+                w, h = get_image_dimensions(self.avatar)
             if w != 200 or h != 200:
                 raise ValidationError("Avatar must be exactly 200x200 pixels.")
-
 
         def __str__(self):
             return f"{self.user.username}'s Profile"

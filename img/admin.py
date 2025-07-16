@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Img, Comment
+from .models import Img, Comment, Profile
 from django_summernote.admin import SummernoteModelAdmin
 
 class ImgAdmin(SummernoteModelAdmin):
@@ -12,3 +12,4 @@ class ImgAdmin(SummernoteModelAdmin):
 
 admin.site.register(Img, ImgAdmin)
 admin.site.register(Comment)
+admin.site.register(Profile)
