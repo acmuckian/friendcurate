@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Img, Comment
-from .forms import CommentForm
+from .forms import CommentForm, UserChangeForm, ProfileUpdateForm
 
 
 # Create your views here.
@@ -129,3 +129,31 @@ def my_favourites(request):
         'img/favourites.html',
         {"favourite_images": favourite_images}
     )
+@login_required
+def profile(request, user_id):
+    if request.method == "POST":
+        user_form = UserUpdateForm(
+            request.POST, 
+            instance=request.user
+        )
+        profile_form = ProfileUpdateForm(
+            request.POST,
+            request.FILES,
+            instance=request.user.profile
+        )
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile has been updated successfully')
+            return redirect('profile', user_id=request.user.id)
+        else:
+            messages.error(request, 'Error updating your profile')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = ProfileUpdateForm(instance=request.user.profile)
+    
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+    return render(request, 'users/profile.html', context)
