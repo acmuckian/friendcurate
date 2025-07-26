@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-
+<h2>{{ user.username }}'s Favourites</h2>
 
 <div class="card-group">
     {% for favourite in favourite_images %}
@@ -16,6 +16,7 @@
         <p> This is where you can add your favourite images. Go to the gallery and add one!</p>
 
         {% endfor %}
+        </div>
     </div>
 
     {% endblock %}

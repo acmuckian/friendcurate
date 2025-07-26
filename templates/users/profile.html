@@ -4,7 +4,7 @@
 
 
 <div class="center">
-	<form method="POST" enctype="multipart/form-data" class="card">
+	<form method="POST" enctype="multipart/form-data" class="card" id="profile-form">
 		{% csrf_token %} 
 		
 	    {% if user.profile %}

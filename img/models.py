@@ -59,8 +59,8 @@ class Profile(models.Model):
                 raise ValidationError("Avatar image is required.")
             else:
                 w, h = get_image_dimensions(self.avatar)
-            if w != 200 or h != 200:
-                raise ValidationError("Avatar must be exactly 200x200 pixels.")
+            if w > 1000 or h > 1000:
+                raise ValidationError("Avatar must not be over 1000 x 1000 pixels.")
 
         def __str__(self):
             return f"{self.user.username}'s Profile"
