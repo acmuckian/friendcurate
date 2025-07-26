@@ -3,8 +3,8 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import Img, Comment
-from .forms import CommentForm, UserChangeForm, ProfileUpdateForm
+from .models import Img, Comment, User
+from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
 
 
 # Create your views here.
@@ -131,7 +131,12 @@ def my_favourites(request):
     )
 @login_required
 def profile(request, user_id):
-    if request.method == "POST":
+    user = get_object_or_404(User, pk=user_id)
+        # Ensure the profile exists
+    if not hasattr(user, 'profile'):
+        from .models import Profile
+        Profile.objects.create(user=user)
+    if request.user == user and request.method == "POST":
         user_form = UserUpdateForm(
             request.POST, 
             instance=request.user
@@ -149,8 +154,8 @@ def profile(request, user_id):
         else:
             messages.error(request, 'Error updating your profile')
     else:
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+        user_form = UserUpdateForm(instance=user)
+        profile_form = ProfileUpdateForm(instance=user.profile)
     
     context = {
         'user_form': user_form,
