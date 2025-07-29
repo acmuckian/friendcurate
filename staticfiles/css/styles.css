@@ -35,8 +35,8 @@ body h3 {
     color: rgb(87, 66, 38);
 }
 
-#nav-pic {
-    height:70px !important;
+#navbar-avatar {
+    height: 70px !important;
     object-fit:contain;
 }
 
