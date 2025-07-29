@@ -26,13 +26,15 @@ class TestImgViews(TestCase):
 
 
 class TestProfile(TestCase):
-  def SetUp(self):
+  def setUp(self):
     self.user = User.objects.create_user(
             username="username",
             password="password",
             email="test@test.com"
         )
     self.profile = Profile(user=self.user, avatar="default.jpg", bio="about me")
+    self.profile.save()
+    self.client.login(username="username", password="password")
 
   def test_profile_page(self):
             response = self.client.get(reverse('profile', kwargs={'user_id': self.user.id}))

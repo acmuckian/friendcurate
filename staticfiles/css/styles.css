@@ -35,6 +35,11 @@ body h3 {
     color: rgb(87, 66, 38);
 }
 
+#nav-pic {
+    height:70px !important;
+    object-fit:contain;
+}
+
 /* on the index.html page */
 .carousel-dark .carousel-caption {
     background-color: rgba(176, 176, 176, 0.482);
