@@ -1,0 +1,129 @@
+:root {
+    --header-font: "Rubik 80s Fade", serif;
+    --body-font: "Lexend", system-ui;
+    --subheading-font: "Cabin Sketch", serif;
+    --subtitle-font: "Press Start 2P", serif;
+}
+
+#header {
+    font-family: var(--header-font) !important;
+    font-size: 4rem;
+}
+
+body {
+    font-family: var(--body-font), system-ui, sans-serif;
+    background-image: url("/static/images/olga-thelavart-vS3idIiYxX0-unsplash.cfe0ce5c0f98.jpg") !important;
+
+}
+
+.navbar-brand {
+    font-family: var(--header-font);
+    font-size: 2.5rem;
+}
+
+body h2 {
+    font-family: var(--subheading-font), serif !important;
+    font-size: 2rem;
+    color: rgb(66, 50, 50);
+}
+
+
+
+body h3 {
+    font-family: 'Press Start 2P', var(--subtitle-font), serif !important;
+    font-size: 1.5rem;
+    color: rgb(87, 66, 38);
+}
+
+/* on the index.html page */
+.carousel-dark .carousel-caption {
+    background-color: rgba(176, 176, 176, 0.482);
+    border-radius: 15px;
+}
+
+.carousel-dark .carousel-caption:focus,
+.carousel-dark .carousel-caption:active,
+.carousel-dark .carousel-caption:hover {
+    transform: skew(5deg, 5deg);
+}
+
+.carousel-control-next-icon {
+    color: #636354;
+}
+
+.card {
+    background-color: #D3D1C4 !important;
+    border: none;
+    border-radius: 0;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.card-img-top:hover {
+    transform: skew(5deg, 5deg);
+}
+
+.card-body {
+    height: 150px;
+    background-color: #D3D1C4 !important;
+}
+
+
+.btn.btn-primary {
+    background-color: #303124 !important;
+    border-color: #303124 !important;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
+
+}
+
+.btn.btn-primary:hover {
+    box-shadow: 1px 1px 0px 0px #4a4a3b, 2px 2px 0px 0px #4a4a3b, 3px 3px 0px 0px #4a4a3b, 4px 4px 0px 0px #4a4a3b, 5px 5px 0px 0px #4a4a3b !important;
+    color: #D3D1C4;
+}
+
+footer {
+    background-color: #303124;
+    color: #D3D1C4;
+    padding-top: 10px;
+}
+
+/* on the html page for single pictures */
+#commentbutton {
+    font-family: var(--subtitle-font);
+    color: #04AA6D;
+}
+
+#commentbutton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* logout page css */
+#logout {
+    background-color: rgba(176, 176, 176, 0.482)
+}
+
+/* profile page css */
+
+#profile-form {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+    padding-bottom:5%;
+}
+
+.avatar {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
