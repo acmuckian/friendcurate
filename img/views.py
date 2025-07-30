@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Img, Comment, User
 from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
+from . import forms
 
 
 # Create your views here.
@@ -50,6 +51,21 @@ def img_delete(request, slug):
         messages.add_message(request, messages.ERROR, 'You can only delete your own images!')
         return redirect('img_detail', slug=img.slug)
 
+@login_required
+def submit_image(request):
+
+    if request.method == "POST":
+        form = forms.CreateImg(request.POST)
+        if form.is_valid():
+            newforum = form.save(commit=False)
+            newforum.author = request.user
+            newforum.save()
+            messages.add_message(request, messages.SUCCESS, "Image Submitted!")
+            return redirect("img_detail")
+    else:
+        form = forms.CreateImg()
+    form = forms.CreateImg()
+    return render(request, "img/submit.html", {"form": form})
 
 def comment_edit(request, slug, comment_id):
     """

@@ -8,4 +8,5 @@ urlpatterns = [
     path('favourites/', views.my_favourites, name="my_favourites"),
     path('<slug:slug>/', views.img_detail, name="img_detail"),
     path('delete/<int:id>/', views.img_delete, name='delete_image'),
+    path('submit', views.submit_image, name='submit')
 ]

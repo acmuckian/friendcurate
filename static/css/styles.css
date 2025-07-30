@@ -20,6 +20,9 @@ body {
     font-family: var(--header-font);
     font-size: 2.5rem;
 }
+.nav-item {
+    margin: auto !important;
+}
 
 body h2 {
     font-family: var(--subheading-font), serif !important;
@@ -126,4 +129,39 @@ footer {
     height: 200px;
     width: 200px;
     object-fit: contain;
+}
+
+/* css for submit html */
+
+#submit-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+    padding:5%;
+    background-color:#303124 !important;
+    color:#D3D1C4;
+    border-radius:15px;
+}
+
+#submit-form h3 {
+    color:#fcfcf4;
+}
+
+#submit-form textarea {
+    border-radius:10px;
+    border-style:dashed;
+    background-color:#666;
+}
+
+#submit-form .btn.btn-primary {
+    background-color:#fcfcf4 !important;
+    box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
+    color:#4a4a3b !important;
+}
+
+#submit-form span {
+    border-style:solid;
+    padding:1%;
+    margin-bottom:1%;
 }
