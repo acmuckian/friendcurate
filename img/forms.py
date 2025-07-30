@@ -1,4 +1,4 @@
-from .models import Comment, Profile, User
+from .models import Comment, Profile, User, Img
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
@@ -21,3 +21,8 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['bio', 'avatar']
+
+class CreateImg(forms.ModelForm):
+    class Meta:
+        model = Img
+        fields = ["title", "image", "caption"]
