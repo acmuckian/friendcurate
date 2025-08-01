@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
+{% if not user.is_authenticated %}
+<h3 id="cta"> Welcome to Friendcurate. Join a thriving community of artists and art lovers alike <a href="{% url 'account_signup' %}">today.</a></h3>
+{% endif %}
 <!-- Carousel Section -->
 {% if img_list %}
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
