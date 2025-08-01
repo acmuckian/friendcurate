@@ -20,9 +20,36 @@
 
 The colour scheme for Friendcurate was selected from an image of a charcoal sketch, as it was fitting for the site's palette as a social network and image hosting site primarily aimed at artists with sufficient contrast. Also, the grey shades were selected to allow the user-uploaded images to pop out in the gallery. 
 
+### Typography 
+
+The Friendcurate logo is in the ![Rubik 80s Fade](https://fonts.google.com/specimen/Rubik+80s+Fade) font. The main header font for the main headers is ![Cabin Sketch](https://fonts.google.com/specimen/Cabin+Sketch) - to reflect the art element of the website. Some of the headings use the ![Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) to give a cool, retro feel to the website and accompanies the Rubik 80s Fade font. 
+
 ### Wireframes 
 
-https://wireframe.cc/5UDuvW
+_Main Page_ 
+
+* https://wireframe.cc/kxj2er - main page desktop
+
+* https://wireframe.cc/rukpGh - main page ipad
+
+* https://wireframe.cc/1K0dqB - main page mobile
+
+_Favourites Page_
+
+* https://wireframe.cc/B0jAuX  favourites desktop
+* https://wireframe.cc/8G19GM  - favourites tablet
+favourites mobile
+
+_Profile Page_ 
+
+* https://wireframe.cc/b7zDhR - profile desktop
+* https://wireframe.cc/yqJ1Wa - profile tablet
+* https://wireframe.cc/ccvz3a - profile mobile
+
+### Data Schema 
+
+![Lucidchart](https://www.lucidchart.com/pages) was for the data schema for Friendcurate which uses a relational model, as illustrated in the Entity Relationship Diagram (ERD) provided. Above is an Entity Relationship Diagram that shows the key models and their fields.
+
 
 ### User Stories
 

@@ -1,32 +1,33 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block content %}
 
 
 <div class="center">
 	<form method="POST" enctype="multipart/form-data" class="card" id="profile-form">
-		{% csrf_token %} 
-		
-	    {% if user.profile %}
-			<img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar"  accept=".jpg,.jpeg,.png"/>
-	    {% endif %}
-	    
-	    <h2 class="text-center">{{ user.username | title }}</h2>
-	    <p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
-		<p class="text-center">{{ user.profile.bio }}</p>
-   	    <hr>
-		
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" value="{{user.email}}" />
-			
-		
+		{% csrf_token %}
+
+		{% if user.profile %}
+		<div id="profile-bg">
+			<img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar" accept=".jpg,.jpeg,.png" />
+			{% endif %}
+
+			<h2 class="text-center">{{ user.username | title }}</h2>
+			<p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
+			<p class="text-center">{{ user.profile.bio }}</p>
+			<hr>
+		</div>
+		<h3 id="profile-settings">settings:</h3>
+		<label for="email">Email Address:</label>
+		<input type="email" id="email" name="email" value="{{user.email}}" />
+
+
 		<label for="avatar">Avatar:</label>
-		<input type="file" name="avatar" id="avatar">	
+		<input type="file" name="avatar" id="avatar">
 		<label for="bio">Bio:</label>
 		<textarea id="bio" name="bio" value="{{user.profile.bio}}"></textarea>
-		
-	    <button type="submit" class="btn btn-primary full-width">Update Profile</button>
-	
+
+		<button type="submit" class="btn btn-primary full-width">Update Profile</button>
 	</form>
 </div>
 
