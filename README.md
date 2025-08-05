@@ -6,11 +6,40 @@
 
 ### Home Page 
 
+The front page displays a gallery of art uploaded by users of the website, immediately demonstrating to the user the point of the website, which is a network for artists to share their artwork. Curious visitors can click on the artworks to see more information. 
+
+
+
+When a visitor is not logged in and sees the website, there is a call to action inviting the visitor to join the website. 
+
+### Navbar
+
+The navigation bar changes depending on whether a user is logged in or not. 
+
+When logged out, the visitor/user shall see the home page, the option to login or sign up to use the website. 
+
+When logged in, the user will see the submit button to submit an image, the Home page, their username and avatar with a drop down for their profile, favourites and logout page. 
+
+
+
 ### Image Display Page 
+
+This is the page for a single image posted; it will show the user when the image was uploaded, the caption, the title of the image. Logged in users are allowed to post comments and add the image to their favourites by bookmarking it. 
+
+### Submit Image Page 
+
+This page allows a logged-in user to upload an image to the website and give it a title as well as a caption. 
 
 ### Login Page 
 
+This is the page to allow a user to log in by entering their email and password.
+
 ### Logout Page 
+
+This is a page to confirm with the user if they want to log out or not. 
+
+### Signup Page 
+
 
 ## UX 
 
