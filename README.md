@@ -12,11 +12,15 @@ The front page displays a gallery of art uploaded by users of the website, immed
 
 When a visitor is not logged in and sees the website, there is a call to action inviting the visitor to join the website. 
 
+![call to action screenshot]()
+
 ### Navbar
 
 The navigation bar changes depending on whether a user is logged in or not. 
 
 When logged out, the visitor/user shall see the home page, the option to login or sign up to use the website. 
+
+![navbar](static/images/navbar.png)
 
 When logged in, the user will see the submit button to submit an image, the Home page, their username and avatar with a drop down for their profile, favourites and logout page. 
 

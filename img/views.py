@@ -61,7 +61,7 @@ def submit_image(request):
             newforum.author = request.user
             newforum.save()
             messages.add_message(request, messages.SUCCESS, "Image Submitted!")
-            return redirect("img_detail")
+            return redirect("img_detail", slug=newforum.slug )
     else:
         form = forms.CreateImg()
     form = forms.CreateImg()

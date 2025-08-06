@@ -2,25 +2,28 @@
 {% load static %}
 {% block content %}
 {% if not user.is_authenticated %}
-<h3 id="cta"> Welcome to Friendcurate. Join a thriving community of artists and art lovers alike <a href="{% url 'account_signup' %}">today.</a></h3>
+<h3 id="cta"> Welcome to Friendcurate. Join a thriving community of artists and art lovers alike <a
+    href="{% url 'account_signup' %}">today.</a></h3>
 {% endif %}
 <!-- Carousel Section -->
 {% if img_list %}
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     {% for img in img_list %}
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ forloop.counter0 }}"
+      class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}"
+      aria-label="Slide {{ forloop.counter }}"></button>
     {% endfor %}
   </div>
   <div class="carousel-inner">
     {% for img in img_list %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="10000">
-        <img src="{{ img.image.url|add:'?h_400' }}" class="d-block w-100" alt="{{ img.title }}">
-        <div class="carousel-caption d-none d-md-block">
-          <h5><a href="{% url 'img_detail' img.slug %}">{{ img.title }} by {{ img.author }}</a></h5>
-          <p>{{ img.caption | safe }}</p>
-        </div>
+    <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="10000">
+      <img src="{{ img.image.url|add:'?h_400' }}" class="d-block w-100" alt="{{ img.title }}">
+      <div class="carousel-caption d-none d-md-block">
+        <h5><a href="{% url 'img_detail' img.slug %}">{{ img.title }} by {{ img.author }}</a></h5>
+        <p>{{ img.caption | safe }}</p>
       </div>
+    </div>
     {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -37,20 +40,22 @@
 <!-- Card List Section -->
 {% if img_list %}
 <div class="container mt-5">
-    <div class="row">
-        {% for img in img_list %}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="{{ img.image.url }}" class="card-img-top" alt="{{ img.title }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ img.title }}</h5>
-                    <p class="card-text"><small class="text-muted">by {{ img.author }}</small></p>
-                    <a href="#" class="btn btn-primary">View Details</a>
-                </div>
-            </div>
+  <div class="row">
+    {% for img in img_list %}
+    {% if img.slug %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="{{ img.image.url }}" class="card-img-top" alt="{{ img.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ img.title }}</h5>
+          <p class="card-text"><small class="text-muted">by {{ img.author }}</small></p>
+          <a href="{% url 'img_detail' img.slug %}" class="btn btn-primary">View Details</a>
         </div>
-        {% endfor %}
+      </div>
     </div>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% endif %}
 {% endblock %}
