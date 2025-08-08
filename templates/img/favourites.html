@@ -4,19 +4,19 @@
 
 <h2>{{ user.username }}'s Favourites</h2>
 
-<div class="card-group">
+<div class="d-flex flex-column gap-4" id="favourite-images">
     {% for favourite in favourite_images %}
     <div class="card">
         <img src="{{ favourite.image.url }}" class="card-img-top" alt="{{ favourite.caption }}">
         <div class="card-body">
             <h5 class="card-title">{{ favourite.title }} by {{ favourite.author }}</h5>
+            <a href="{% url 'img_detail' favourite.slug %}" class="btn btn-primary">View Details</a>
         </div>
-        {% empty %}
-
-        <p> This is where you can add your favourite images. Go to the gallery and add one!</p>
-
-        {% endfor %}
-        </div>
+        <br>
     </div>
+    {% empty %}
+    <p> This is where you can add your favourite images. Go to the gallery and add one!</p>
+    {% endfor %}
+</div>
 
     {% endblock %}

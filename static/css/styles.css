@@ -52,16 +52,19 @@ body h3 {
 #cta {
     text-align: center !important;
     font-size: 1.1rem !important;
-    color:#D3D1C4;
+    color: #D3D1C4;
     background-color: #303124;
-    padding:1%;
+    padding: 1%;
     margin-bottom: 10px;
 
 }
+
 .carousel-dark .carousel-caption {
-    background-color: rgba(176, 176, 176, 0.482);
+    background-color: rgba(40, 40, 40, 0.482);
     border-radius: 15px;
+    color: #fcfcf4;
 }
+
 
 .carousel-dark .carousel-caption:focus,
 .carousel-dark .carousel-caption:active,
@@ -70,7 +73,33 @@ body h3 {
 }
 
 .carousel-control-next-icon {
-    color: #636354;
+    color: #D3D1C4;
+}
+
+.carousel {
+    max-width: 80vw !important;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.carousel a {
+    color: #fcfcf4;
+}
+
+#carouselcaption {
+    color: #fcfcf4;
+}
+
+.carousel img {
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.carousel-inner,
+.carousel-item,
+.carousel img {
+    width: 100%;
+    height: 60vh;
 }
 
 .card {
@@ -123,6 +152,19 @@ footer {
 }
 
 /* on the html page for single pictures */
+
+#image-content {
+    background-color:#fcfcf4;
+    padding:1%;
+}
+#image-content-header {
+    background-color:rgba(99, 99, 84, 0.2);
+    padding: 0.2em;
+    width:80%;
+}
+#image-content-p {
+    padding:1%;
+}
 #commentbutton {
     font-family: var(--subtitle-font);
     color: #04AA6D;
@@ -211,8 +253,22 @@ footer {
     color: #4a4a3b !important;
 }
 
-#submit-form span {
-    border-style: solid;
-    padding: 1%;
-    margin-bottom: 1%;
+.note-editable {
+    background-color: #D3D1C4 !important;
+}
+
+/* favourites.html */
+
+#favourite-images {
+    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+#favourite-images .card {
+    max-width: 700px !important;
+    width: 100% !important;
+    margin-bottom: 0;
 }

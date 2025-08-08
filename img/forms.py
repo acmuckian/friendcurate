@@ -26,3 +26,6 @@ class CreateImg(forms.ModelForm):
     class Meta:
         model = Img
         fields = ["title", "image", "caption"]
+        widgets = {
+            'caption': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
+        }
