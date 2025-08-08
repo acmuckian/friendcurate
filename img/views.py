@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
 from .models import Img, Comment, User
 from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
@@ -11,7 +12,7 @@ from . import forms
 # Create your views here.
 class ImgList(generic.ListView):
     model = Img
-    queryset = Img.objects.all()
+    queryset = Img.objects.exclude(slug__isnull=True).exclude(slug__exact='')
     template_name = "img/index.html"
     paginate_by = 6
 
@@ -19,17 +20,28 @@ def img_detail(request, slug):
 
     queryset = Img.objects.filter(status='published')
     post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.filter(approved=True).order_by('created_on')
+    comments = post.comments.all().order_by('-created_on')
+    comment_count = post.comments.filter(approved=True).count()
     comment_form = CommentForm()
+    edit_comment_id = request.GET.get('edit_comment')
+    edit_comment = None
+    edit_form = None
+
+    if edit_comment_id:
+        try:
+            edit_comment = Comment.objects.get(pk=edit_comment_id, post=post, author=request.user)
+            edit_form = CommentForm(instance=edit_comment)
+        except Comment.DoesNotExist:
+            edit_comment = None
+    
     if request.method == "POST":
-        comment_form = comment_form(data=request.POST)
+        comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.post = post 
             comment.save()
-    
-
+            return redirect('img_detail', slug=slug)
     return render(
         request,
         "img/single.html",
@@ -37,6 +49,8 @@ def img_detail(request, slug):
             "img": post,
             "comments": comments,
             "comment_form": comment_form,
+            "edit_comment": edit_comment,
+            "edit_form": edit_form,
         },
     )
 
@@ -55,16 +69,24 @@ def img_delete(request, slug):
 def submit_image(request):
 
     if request.method == "POST":
-        form = forms.CreateImg(request.POST)
+        form = forms.CreateImg(request.POST, request.FILES)
         if form.is_valid():
-            newforum = form.save(commit=False)
-            newforum.author = request.user
-            newforum.save()
+            newimg.status = "published"
+            newimg = form.save(commit=False)
+            newimg.author = request.user
+            if not newimg.slug:
+                newimg.slug = slugify(newimg.title)
+            original_slug = newimg.slug
+            counter = 1
+            while Img.objects.filter(slug=newimg.slug).exists():
+                newimg.slug = f"{original_slug}-{counter}"
+                counter += 1
+            newimg.save()
+            newimg.save()
             messages.add_message(request, messages.SUCCESS, "Image Submitted!")
-            return redirect("img_detail", slug=newforum.slug )
+            return redirect("img_detail", slug=newimg.slug )
     else:
         form = forms.CreateImg()
-    form = forms.CreateImg()
     return render(request, "img/submit.html", {"form": form})
 
 def comment_edit(request, slug, comment_id):

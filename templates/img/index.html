@@ -10,6 +10,7 @@
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     {% for img in img_list %}
+
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ forloop.counter0 }}"
       class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}"
       aria-label="Slide {{ forloop.counter }}"></button>
@@ -17,13 +18,15 @@
   </div>
   <div class="carousel-inner">
     {% for img in img_list %}
+    {% if img.slug %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="10000">
-      <img src="{{ img.image.url|add:'?h_400' }}" class="d-block w-100" alt="{{ img.title }}">
-      <div class="carousel-caption d-none d-md-block">
+      <img src="{{ img.image.url|add:'?h_400' }}" class="d-block w-100" alt="{{ img.title }}" id="carousel-image">
+      <div class="carousel-caption d-md-block">
         <h5><a href="{% url 'img_detail' img.slug %}">{{ img.title }} by {{ img.author }}</a></h5>
-        <p>{{ img.caption | safe }}</p>
+        <p id="carouselcaption">{{ img.caption | safe }}</p>
       </div>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
