@@ -25,3 +25,12 @@
 | Chrome  | Yes        |
 | Mozilla |            |
 | Safari  |            |
+
+
+## Bugs 
+
+| Bug | Picture |
+|---------|------------|
+| The dropdown bar prevented an email from being required before the submit button was clicked for the newsletter. This bug persisted so the dropdown feature was dropped for the newsletter feature.  | ![dropdown feature on the newsletter](static/images/Dropdown-bug.png)    |
+|  |            |
+|   |            |
