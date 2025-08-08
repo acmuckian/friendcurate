@@ -59,6 +59,10 @@ body h3 {
 
 }
 
+#cta a {
+    color:#fcfcf4;
+}
+
 .carousel-dark .carousel-caption {
     background-color: rgba(40, 40, 40, 0.482);
     border-radius: 15px;
@@ -86,7 +90,7 @@ body h3 {
     color: #fcfcf4;
 }
 
-#carouselcaption {
+.carouselcaption {
     color: #fcfcf4;
 }
 

@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 {% url 'home' as home_url %}
 {% url 'img_detail' img.slug as img_detail_url %}
 {% url 'login' as login_url %}
@@ -94,17 +95,34 @@
                     <i class="fab fa-youtube-square ms-3"></i>
                 </p>
                 <div class="col text-center dropup-center dropup">
-                    <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
+                    <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button"><i
                             class="far fa-bell"></i> Subscribe to Our Weekly Newsletter: </p>
-                    <ul class="dropdown-menu">
-                        <input id="email" name="email" type="email" class="form-control" placeholder="Email address"
+
+                    <form method="post" action="{% url 'subscribe' %}" class="dropdown-menu">
+                        {% csrf_token %}
+                        {{ subscribe_form|crispy }}
+                        <input id="email" name="email" type="email" placeholder="Email address"
                             required>
-                    </ul>
+                        <button type="submit" class="btn btn-outline-success">Submit</button>
+                    </form>
+
                 </div>
             </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        const emailField = document.getElementById('email');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.classList.add('show');
+        console.log('Email field value:', emailField.value); // Debugging
+        if (!emailField.value.trim()) {
+            event.preventDefault(); // Prevent form submission
+            alert('Please enter a valid email address.');
+        }
+    });
+</script>
 </body>
 
 </html>
