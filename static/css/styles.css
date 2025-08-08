@@ -47,6 +47,15 @@ body h3 {
     color: rgb(87, 66, 38);
 }
 
+.dropdown-menu {
+    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity)) !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #4a4a3b;
+    color:#fcfcf4;
+}
+
 /* on the index.html page */
 
 #cta {
