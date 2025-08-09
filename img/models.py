@@ -15,7 +15,7 @@ class Img(models.Model):
     options = ( ('draft', 'Draft'),
                ('published', 'Published')
     )
-    image = CloudinaryField('image', default='placeholder', blank=False, null=False)
+    image = CloudinaryField('image', blank=False, null=False)
     slug = models.SlugField(max_length=200, unique=True)
     title = models.CharField(max_length=200, unique=True, blank=False, null=False)
     caption = models.TextField(max_length=1000, unique=True, blank=False, null=False)

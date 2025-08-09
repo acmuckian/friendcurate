@@ -122,6 +122,34 @@ Automated testing was performed for some of views and forms for both img and con
 | clicking   save on the edited version lets the edited version appear | Yes        |
 | clicking   the delete button deletes the comment                     | Yes        |
 
+| **Submit   Image**                                                                |            |
+|-----------------------------------------------------------------------------------|------------|
+| **Feature**                                                                       | **Status** |
+| Unable   to submit an image without a title                                       | Yes        |
+| Unable   to submit an image without caption                                       | Yes        |
+| Error   messages for when attempt to upload an image without title and/or caption | Yes        |
+| Unable   to submit without an image                                               | Yes        |
+| Error   message if attempt to submit without image                                | Yes        |
+| Successful   submit redirects to home page                                        | Yes        |
+
+| **Login Page and Sign Out Pages**                                            |            |
+|------------------------------------------------------------------------------|------------|
+| **Feature**                                                                  | **Status** |
+| entering   the wrong username or passowrd prompts an error message           | Yes        |
+| clicking   forget password goes to the forget password page                  | Yes        |
+| successfully   putting in username and password sends user to logged in site | Yes        |
+| clicking   on the link to sign up brings user to sign up page                | Yes        |
+| **sign out page**                                                            |            |
+| clicking sign out signs the user out                                         | Yes        |
+
+| **Profile   Page**                                                |            |
+|-------------------------------------------------------------------|------------|
+| **Feature**                                                       | **Status** |
+| Email   can be updated by inserting an email in the relevant box  | Yes        |
+| Bio can   be updated by inserting an email in the relevant box    | Yes        |
+| Avatar   can be updated by inserting an email in the relevant box | Yes        |
+| Users can   see their own avatar, bio and email                   | Yes        |
+
 
 ## Bugs 
 
