@@ -6,12 +6,13 @@ from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
-# class Category(models.Model):
-#     name = models.CharField(max_length=50)
 
 
 class Img(models.Model):
-    options = ( ( 'draft', 'Draft'),
+    """
+    Stores a single entry of image related to :model: `auth.User`.
+    """
+    options = ( ('draft', 'Draft'),
                ('published', 'Published')
     )
     image = CloudinaryField('image', default='placeholder')
@@ -35,6 +36,10 @@ class Img(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Stores a single comment entry related to :model:`auth.User`and
+    :model:`img.Img`.
+    """
     post = models.ForeignKey(
         Img, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
@@ -48,8 +53,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
-        
+
+  
 class Profile(models.Model):
+        """
+        Stores a single profile related to :model:`auth.User`.
+        """
         user = models.OneToOneField(User, on_delete=models.CASCADE)
         avatar = models.ImageField( default='default.jpg', upload_to='profile_pics')
         bio = models.TextField(max_length=500, blank=True)

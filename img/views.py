@@ -10,14 +10,31 @@ from . import forms
 
 
 # Create your views here.
+
+
 class ImgList(generic.ListView):
     model = Img
     queryset = Img.objects.exclude(slug__isnull=True).exclude(slug__exact='')
     template_name = "img/index.html"
     paginate_by = 6
 
-def img_detail(request, slug):
 
+def img_detail(request, slug):
+    """
+    Displays an individual instance of :model:img.Img
+    **Context**
+    ``img``
+        An instance of :model:`img.Img`.
+    ``comments``
+        All comments related to the img.
+    ``comment_count``
+        A count of comments related to the img.
+    ``comment_form``
+        An instance of :form:`img.CommentForm`.
+
+    **Template:**
+    :template:`img/single.html`
+    """
     queryset = Img.objects.filter(status='published')
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by('-created_on')
@@ -29,17 +46,21 @@ def img_detail(request, slug):
 
     if edit_comment_id:
         try:
-            edit_comment = Comment.objects.get(pk=edit_comment_id, post=post, author=request.user)
+            edit_comment = Comment.objects.get(
+                pk=edit_comment_id,
+                post=post,
+                author=request.user
+                )
             edit_form = CommentForm(instance=edit_comment)
         except Comment.DoesNotExist:
             edit_comment = None
-    
+
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.post = post 
+            comment.post = post
             comment.save()
             return redirect('img_detail', slug=slug)
     return render(
@@ -54,7 +75,15 @@ def img_detail(request, slug):
         },
     )
 
+
 def img_delete(request, slug):
+    """
+    Deletes an image.
+
+    **Context**
+    ``img``
+        An instance of :model:`img.Img`.
+    """
     queryset = Img.objects.filter(status="published")
     img = get_object_or_404(queryset, slug=slug)
     if img.author == request.user:
@@ -62,11 +91,22 @@ def img_delete(request, slug):
         messages.add_message(request, messages.SUCCESS, 'Image removed!')
         return HttpResponseRedirect(reverse('home'))
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own images!')
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own images!')
         return redirect('img_detail', slug=img.slug)
+
 
 @login_required
 def submit_image(request):
+    """
+    Allows a logged-in user to submit an image to the site.
+
+        **Context**
+    ``form``
+        An instance of :form:`img.form`.
+        **Template:**
+    :template:`img/submit.html`
+    """
 
     if request.method == "POST":
         form = forms.CreateImg(request.POST, request.FILES)
@@ -84,10 +124,11 @@ def submit_image(request):
             newimg.save()
             newimg.save()
             messages.add_message(request, messages.SUCCESS, "Image Submitted!")
-            return redirect("img_detail", slug=newimg.slug )
+            return redirect("img_detail", slug=newimg.slug)
     else:
         form = forms.CreateImg()
     return render(request, "img/submit.html", {"form": form})
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -96,11 +137,11 @@ def comment_edit(request, slug, comment_id):
     **Context**
 
     ``post``
-        An instance of :model:`blog.Post`.
+        An instance of :model:`img.Img.
     ``comment``
-        A single comment related to the post.
+        A single comment related to the img.
     ``comment_form``
-        An instance of :form:`blog.CommentForm`
+        An instance of :form:`img.CommentForm`
     """
     if request.method == "POST":
 
@@ -116,9 +157,13 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR,
-                                 'Error updating comment!')
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'Error updating comment!'
+                )
     return HttpResponseRedirect(reverse('img_detail', args=[slug]))
+
 
 @login_required
 def comment_delete(request, slug, comment_id):
@@ -128,9 +173,9 @@ def comment_delete(request, slug, comment_id):
     **Context**
 
     ``img``
-        An instance of :model:`blog.Post`.
+        An instance of :model:`img.Img`.
     ``comment``
-        A single comment related to the post.
+        A single comment related to the img.
     """
     queryset = Img.objects.filter(status="published")
     img = get_object_or_404(queryset, slug=slug)
@@ -140,14 +185,29 @@ def comment_delete(request, slug, comment_id):
             comment.delete()
             messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
         else:
-         messages.add_message(request, messages.ERROR,
-                             'You can only delete your own comments!')
+            messages.add_message(
+                request,
+                messages.ERROR,
+                'You can only delete your own comments!'
+                  )
     else:
         messages.error(request, 'Invalid request method.')
     return HttpResponseRedirect(reverse('img_detail', args=[slug]))
 
+
 @login_required
 def add_favourite(request, id):
+    """
+    Allows a user to add an image to their favourites.
+        **Context**
+
+    ``img``
+        An instance of :model:`img.Img`.
+    ``favourites``
+        A favourite related to the img.
+        **Template**
+        :template:`img/favourites.html`
+    """
     img = get_object_or_404(Img, id=id)
     if img.favourites.filter(id=request.user.id).exists():
         img.favourites.remove(request.user)
@@ -157,26 +217,49 @@ def add_favourite(request, id):
         messages.add_message(request, messages.SUCCESS, 'Favourite added!')
     return redirect('img_detail', slug=img.slug)
 
-@login_required
 
+@login_required
 def my_favourites(request):
-    favourite_images = Img.objects.filter(favourites=request.user, status='published')
+    """
+    Allows a user to see their favourites.
+        **Context**
+
+    ``img``
+        An instance of :model:`img.Img`.
+    ``favourites``
+        A favourite related to the img.
+        **Template**
+        :template:`img/favourites.html`
+    """
+    favourite_images = Img.objects.filter(
+        favourites=request.user,
+        status='published'
+        )
 
     return render(
         request,
         'img/favourites.html',
         {"favourite_images": favourite_images}
     )
+
+
 @login_required
 def profile(request, user_id):
+    """
+    Allows a user to see their profile.
+        **Context**
+    ``user``
+        An instance of :model:`auth.User`.
+        **Template**
+        :template:`user/profile.html`
+    """
     user = get_object_or_404(User, pk=user_id)
-        # Ensure the profile exists
     if not hasattr(user, 'profile'):
         from .models import Profile
         Profile.objects.create(user=user)
     if request.user == user and request.method == "POST":
         user_form = UserUpdateForm(
-            request.POST, 
+            request.POST,
             instance=request.user
         )
         profile_form = ProfileUpdateForm(
@@ -187,14 +270,16 @@ def profile(request, user_id):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile has been updated successfully')
+            messages.success(
+                request,
+                'Your profile has been updated successfully')
             return redirect('profile', user_id=request.user.id)
         else:
             messages.error(request, 'Error updating your profile')
     else:
         user_form = UserUpdateForm(instance=user)
         profile_form = ProfileUpdateForm(instance=user.profile)
-    
+
     context = {
         'user_form': user_form,
         'profile_form': profile_form

@@ -5,16 +5,33 @@ from .forms import ContactForm, NewsletterForm
 
 # Create your views here.
 
+
 def contact_us(request):
+    """
+    Allows user contact requests.
+    **Context**
+    ``contact_form``
+        An instance of :form: `contact.ContactForm`.
+    **Template:**
+    :template:`contact/contact.html`
+    """
     contact_form = ContactForm()
     return render(
         request,
         "contact/contact.html",
         {
-        "contact_form": contact_form
+            "contact_form": contact_form
         }
     )
+
+
 def subscribe(request):
+    """
+    Allows visitors and users to subscribe to the newsletter.
+    **Context**
+    ``form``
+        An instance of :form: `contact.NewsletterForm`.
+    """
     if request.method == "POST":
         form = NewsletterForm(request.POST)
         if form.is_valid():
@@ -24,10 +41,11 @@ def subscribe(request):
             subject = "Thanks for subscribing to Friendcurate"
             message = (
                 "Thank you for subscribing to our newsletter,"
-                + "you will see the latest developments in visual arts and about our site!"
+                + "you will see the latest developments"
+                + "in visual arts and about our site!"
                 + "Go back https://friendcurate.herokuapp.com/"
             )
-            from_email = "tmarkec@gmail.com"
+            from_email = "acmuckian@gmail.com"
             recipient_list = [email]
             send_mail(subject,
                       message, from_email, recipient_list, fail_silently=False)

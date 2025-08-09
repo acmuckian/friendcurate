@@ -13,7 +13,9 @@
 body {
     font-family: var(--body-font), system-ui, sans-serif;
     background-image: url("/static/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg") !important;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -48,12 +50,19 @@ body h3 {
 }
 
 .dropdown-menu {
-    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity)) !important;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .dropdown-menu .dropdown-item:hover {
     background-color: #4a4a3b;
-    color:#fcfcf4;
+    color: #fcfcf4;
+}
+
+.footer {
+
+    width: 100%;
+    margin-top: auto;
+
 }
 
 /* on the index.html page */
@@ -69,7 +78,7 @@ body h3 {
 }
 
 #cta a {
-    color:#fcfcf4;
+    color: #fcfcf4;
 }
 
 .carousel-dark .carousel-caption {
@@ -167,17 +176,20 @@ footer {
 /* on the html page for single pictures */
 
 #image-content {
-    background-color:#fcfcf4;
-    padding:1%;
+    background-color: #fcfcf4;
+    padding: 1%;
 }
+
 #image-content-header {
-    background-color:rgba(99, 99, 84, 0.2);
+    background-color: rgba(99, 99, 84, 0.2);
     padding: 0.2em;
-    width:80%;
+    width: 80%;
 }
+
 #image-content-p {
-    padding:1%;
+    padding: 1%;
 }
+
 #commentbutton {
     font-family: var(--subtitle-font);
     color: #04AA6D;
