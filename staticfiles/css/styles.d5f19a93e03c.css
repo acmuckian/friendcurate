@@ -1,0 +1,301 @@
+:root {
+    --header-font: "Rubik 80s Fade", serif;
+    --body-font: "Lexend", system-ui;
+    --subheading-font: "Cabin Sketch", serif;
+    --subtitle-font: "Press Start 2P", serif;
+}
+
+#header {
+    font-family: var(--header-font) !important;
+    font-size: 4rem;
+}
+
+body {
+    font-family: var(--body-font), system-ui, sans-serif;
+    background-image: url("/static/images/olga-thelavart-vS3idIiYxX0-unsplash.cfe0ce5c0f98.jpg") !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #636354;
+}
+
+a::after {
+    color: #4a4a3b;
+}
+
+.navbar-brand {
+    font-family: var(--header-font);
+    font-size: 2.5rem;
+}
+
+.nav-item {
+    margin: auto !important;
+}
+
+body h2 {
+    font-family: var(--subheading-font), serif !important;
+    font-size: 2rem;
+    color: rgb(66, 50, 50);
+}
+
+
+
+body h3 {
+    font-family: 'Press Start 2P', var(--subtitle-font), serif !important;
+    font-size: 1.5rem;
+    color: rgb(87, 66, 38);
+}
+
+.dropdown-menu {
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #4a4a3b;
+    color: #fcfcf4;
+}
+
+footer {
+
+    width: 100%;
+    margin-top: auto;
+    background-color: #303124;
+    color: #D3D1C4;
+    padding-top: 10px;
+}
+
+/* on the index.html page */
+
+#cta {
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: #D3D1C4;
+    background-color: #303124;
+    padding: 1%;
+    margin-bottom: 10px;
+
+}
+
+#cta a {
+    color: #fcfcf4;
+}
+
+.carousel-dark .carousel-caption {
+    background-color: rgba(40, 40, 40, 0.482);
+    border-radius: 15px;
+    color: #fcfcf4;
+}
+
+
+.carousel-dark .carousel-caption:focus,
+.carousel-dark .carousel-caption:active,
+.carousel-dark .carousel-caption:hover {
+    transform: skew(5deg, 5deg);
+}
+
+.carousel-control-next-icon {
+    color: #D3D1C4;
+}
+
+.carousel {
+    max-width: 80vw !important;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.carousel a {
+    color: #fcfcf4;
+}
+
+.carouselcaption {
+    color: #fcfcf4;
+}
+
+.carousel img {
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.carousel-inner,
+.carousel-item,
+.carousel img {
+    width: 100%;
+    height: 60vh;
+}
+
+.card {
+    background-color: #D3D1C4 !important;
+    border: none;
+    border-radius: 0;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.card-img-top:hover {
+    transform: skew(5deg, 5deg);
+}
+
+.card-body {
+    height: 150px;
+    background-color: #D3D1C4 !important;
+}
+
+
+.btn.btn-primary {
+    background-color: #303124 !important;
+    border-color: #303124 !important;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
+
+}
+
+.btn.btn-primary:hover {
+    box-shadow: 1px 1px 0px 0px #4a4a3b, 2px 2px 0px 0px #4a4a3b, 3px 3px 0px 0px #4a4a3b, 4px 4px 0px 0px #4a4a3b, 5px 5px 0px 0px #4a4a3b !important;
+    color: #D3D1C4;
+}
+
+.comment-section {
+    background-color: #D3D1C4;
+    padding: 2%;
+
+}
+
+
+
+/* on the html page for single pictures */
+
+#image-content {
+    background-color: #fcfcf4;
+    padding: 1%;
+}
+
+#image-content-header {
+    background-color: rgba(99, 99, 84, 0.2);
+    padding: 0.2em;
+    width: 80%;
+}
+
+#image-content-p {
+    padding: 1%;
+}
+
+#commentbutton {
+    font-family: var(--subtitle-font);
+    color: #04AA6D;
+}
+
+#commentbutton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.col-md-8 .btn.btn-primary {
+    background-color: #fcfcf4 !important;
+    box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
+    color: #4a4a3b !important;
+}
+
+/* logout page css */
+#logout {
+    background-color: rgba(176, 176, 176, 0.482);
+    padding: 1%;
+}
+main {
+    flex: 1 0 auto;
+}
+
+/* profile page css */
+
+#profile-form {
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+    padding-bottom: 5%;
+}
+
+#profile-bg {
+    background-color: #303124;
+    color: #fcfcf4;
+}
+
+#profile-bg h2 {
+    color: #fcfcf4;
+}
+
+#profile-bg a {
+    color: #D3D1C4;
+    font-size: small;
+}
+
+#profile-settings {
+    border: 2px solid #303124;
+    padding: 2px;
+    margin: 1%;
+}
+
+.avatar {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+}
+
+/* css for submit html */
+
+#submit-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+    padding: 5%;
+    background-color: #303124 !important;
+    color: #D3D1C4;
+    border-radius: 15px;
+}
+
+#submit-form h3 {
+    color: #fcfcf4;
+}
+
+#submit-form textarea {
+    border-radius: 10px;
+    border-style: dashed;
+    background-color: #666;
+}
+
+#submit-form .btn.btn-primary {
+    background-color: #fcfcf4 !important;
+    box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
+    color: #4a4a3b !important;
+}
+
+.note-editable {
+    background-color: #D3D1C4 !important;
+}
+
+/* favourites.html */
+
+#favourite-images {
+    justify-content: center !important;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+#favourite-images .card {
+    max-width: 700px !important;
+    width: 100% !important;
+    margin-bottom: 0;
+}

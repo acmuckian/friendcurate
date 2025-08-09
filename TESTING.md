@@ -55,6 +55,8 @@
 
 ### Automated Testing 
 
+Automated testing was performed for some of views and forms for both img and contact. Due to time constraints, only six tests were made - these six tests passed with OK. 
+
 ### Manual Testing
 
 | User Story                                                                                                            | Responsive |
@@ -62,10 +64,64 @@
 | As a visitor to the site, I can create an account so I can comment on images, edit my comments and add images myself. | Yes        |
 | As a user, I can add images that other users can comment on and add to their favourites.                              |  ![screenshot of submit image page](static/images/submitimagepage.png)          |
 | As an admin, I can check images and captions, comments to make sure they are okay and up to date and approved.        |            |
-| As a user, I can add images to my favourites collection and to be able to view my collection.                         |            |
+| As a user, I can add images to my favourites collection and to be able to view my collection.                         |  ![screenshot of favourites section]()          |
 | As a user, I can sign in to the website so that I can access my account and enjoy customized features and contents.   |            |
-| As a user, I can sign out of the website when I finished using it for now.                                            |            |
+| As a user, I can sign out of the website when I finished using it for now.                                            |  ![screenshot of signout page](static/images/signoutsection.png)         |
 | As a site owner, I want to encourage visitors to become users of the website.                                         |    ![call to action banner](static/images/calltoaction.png)       |
+
+## Features Testing 
+
+| **Home   Page**                                                |            |
+|----------------------------------------------------------------|------------|
+| **Feature**                                                    | **Status** |
+| Clicking   Friendcurate shows home page.                       | Yes        |
+| If   signed out - Home, Login, Register show on navbar         | Yes        |
+| If   signed out - banner to join Friendcurate appears          | Yes        |
+| Clicking   login brings to login page                          | Yes        |
+| Clicking   register brings to register page                    | Yes        |
+| Clicking   home brings to home page                            | Yes        |
+| **Carousel**                                                   |            |
+| Clicking   back and forwards buttons work                      | Yes        |
+| Carousel   moves automatically                                 | Yes        |
+| Clicking   on image title goes to image page                   | Yes        |
+| **Images**                                                     |            |
+| Clicking   on view details button goes to image page           | Yes        |
+| Hoovering   over image skews image                             | Yes        |
+| **Footer**                                                     |            |
+| Cannot   subscribe without entering email                      | Yes        |
+| clicking   social media icons brings to that social media site | Yes        |
+
+
+| **Home   Page**                                                |            |
+|----------------------------------------------------------------|------------|
+| **Feature**                                                    | **Status** |
+| Clicking   Friendcurate shows home page.                       | Yes        |
+| If   signed out - Home, Login, Register show on navbar         | Yes        |
+| If   signed out - banner to join Friendcurate appears          | Yes        |
+| Clicking   login brings to login page                          | Yes        |
+| Clicking   register brings to register page                    | Yes        |
+| Clicking   home brings to home page                            | Yes        |
+| **Carousel**                                                   |            |
+| Clicking   back and forwards buttons work                      | Yes        |
+| Carousel   moves automatically                                 | Yes        |
+| Clicking   on image title goes to image page                   | Yes        |
+| **Images**                                                     |            |
+| Clicking   on view details button goes to image page           | Yes        |
+| Hoovering   over image skews image                             | Yes        |
+| **Footer**                                                     |            |
+| Cannot   subscribe without entering email                      | Yes        |
+| clicking   social media icons brings to that social media site | Yes        |
+
+| **Image   Page**                                                     |            |
+|----------------------------------------------------------------------|------------|
+| **Feature**                                                          | **Status** |
+| Clicking bookmark button adds to   favourites                        | Yes        |
+| adding   comment allows a comment to be added                        | Yes        |
+| a   comment will have a red note saying it's awaiting approval       | Yes        |
+| clicking   edit on the comment button allows an edit box to come up  | Yes        |
+| clicking   save on the edited version lets the edited version appear | Yes        |
+| clicking   the delete button deletes the comment                     | Yes        |
+
 
 ## Bugs 
 

@@ -39,9 +39,19 @@ class CreateImg(forms.ModelForm):
     """
     Form for creating an image
     """
+    caption = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 4, 'cols': 40}),
+        required=False  # <--- This disables browser validation
+    )
     class Meta:
         model = Img
         fields = ["title", "image", "caption", ]
-        widgets = {
-            'caption': forms.Textarea(attrs={'rows': 4, 'cols': 40}),
-        }
+    def clean_caption(self):
+            data = self.cleaned_data.get('caption', '').strip()
+            import re
+            text_only = re.sub('<[^<]+?>', '', data).strip()
+            if not text_only:
+                raise forms.ValidationError("Caption is required.")
+            return data
+
+      

@@ -4,7 +4,7 @@
 
 <h2>{{ user.username }}'s Favourites</h2>
 
-<div class="d-flex flex-column gap-4" id="favourite-images">
+<div class="d-flex flex-row gap-4" id="favourite-images">
     {% for favourite in favourite_images %}
     <div class="card">
         <img src="{{ favourite.image.url }}" class="card-img-top" alt="{{ favourite.caption }}">
