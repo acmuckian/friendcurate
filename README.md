@@ -86,15 +86,19 @@ _Profile Page_
 
 ### User Stories
 
-1. As a visitor to the site, I want to be able to create an account so I can comment on images, edit my comments and add images myself.
+1. As a visitor to the site, I can create an account so I can comment on images, edit my comments and add images myself.
 
-2. As a user, I want to be able to add images that other users can comment on and add to their favourites. 
+2. As a user, I can add images that other users can comment on and add to their favourites. 
 
-3. As an admin, I want to be able to check images and captions, comments to make sure they are okay and up to date and approved. 
+3. As an admin, I can check images and captions, comments to make sure they are okay and up to date and approved. 
 
-4. As a user, I want to be able to add images to my favourites collection and to be able to view my collection. 
+4. As a user, I can add images to my favourites collection and to be able to view my collection. 
 
-5. 
+5. As a user, I can sign in to the website so that I can access my account and enjoy customized features and contents.
+
+6. As a user, I can sign out of the website when I finished using it for now.
+
+7. As a site owner, I want to encourage visitors to become users of the website. 
 
 
 ### Agile Development
