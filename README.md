@@ -6,13 +6,14 @@
 
 ### Home Page 
 
+
 The front page displays a gallery of art uploaded by users of the website, immediately demonstrating to the user the point of the website, which is a network for artists to share their artwork. Curious visitors can click on the artworks to see more information. 
 
-
+![front page screenshot](static/images/frontpage.png)
 
 When a visitor is not logged in and sees the website, there is a call to action inviting the visitor to join the website. 
 
-![call to action screenshot]()
+![call to action screenshot](static/images/calltoaction.png)
 
 ### Navbar
 
@@ -20,9 +21,11 @@ The navigation bar changes depending on whether a user is logged in or not.
 
 When logged out, the visitor/user shall see the home page, the option to login or sign up to use the website. 
 
-![navbar](static/images/navbar.png)
+![navbar when logged out screenshot](static/images/navbar.png)
 
 When logged in, the user will see the submit button to submit an image, the Home page, their username and avatar with a drop down for their profile, favourites and logout page. 
+
+![navbar when logged in screenshot](static/images/navbar-loggedin.png)
 
 
 
@@ -32,14 +35,16 @@ This is the page for a single image posted; it will show the user when the image
 
 ### Submit Image Page 
 
+![submit page screenshot](static/images/submitimagepage.png)
+
 This page allows a logged-in user to upload an image to the website and give it a title as well as a caption. 
 
 ### Login Page 
 
 This is the page to allow a user to log in by entering their email and password.
 
-### Logout Page 
-
+### Signout Page 
+![signout page screenshot](static/images/signoutsection.png)
 This is a page to confirm with the user if they want to log out or not. 
 
 ### Signup Page 
@@ -101,4 +106,11 @@ _Profile Page_
 7. As a site owner, I want to encourage visitors to become users of the website. 
 
 
-### Agile Development
+## Deployment 
+
+## Testing 
+
+Please refer to the [testing page](TESTING.md) for information about testing and bugs. 
+
+## Credits 
+

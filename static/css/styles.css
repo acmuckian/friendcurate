@@ -67,6 +67,14 @@ footer {
     padding-top: 10px;
 }
 
+footer a {
+    color:#fcfcf4;
+}
+
+footer a:hover {
+    color:#D3D1C4;
+    
+}
 /* on the index.html page */
 
 #cta {
@@ -305,7 +313,10 @@ main {
 .errorlist {
     color:darkred;
     background-color:#f09898;
-    border:darkred;
-    border-radius:10px;
-    padding:2px;
+    border:darkred 1px solid;
+    border-radius:5px;
+    padding:3px;
+    list-style-type:none; 
+
 }
+
