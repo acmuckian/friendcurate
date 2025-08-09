@@ -15,10 +15,10 @@ class Img(models.Model):
     options = ( ('draft', 'Draft'),
                ('published', 'Published')
     )
-    image = CloudinaryField('image', default='placeholder')
+    image = CloudinaryField('image', default='placeholder', blank=False, null=False)
     slug = models.SlugField(max_length=200, unique=True)
-    title = models.CharField(max_length=200, unique=True)
-    caption = models.CharField(max_length=1000, unique=True)
+    title = models.CharField(max_length=200, unique=True, blank=False, null=False)
+    caption = models.TextField(max_length=1000, unique=True, blank=False, null=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="img_posts"
     )
@@ -54,13 +54,13 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
 
-  
+
 class Profile(models.Model):
         """
         Stores a single profile related to :model:`auth.User`.
         """
         user = models.OneToOneField(User, on_delete=models.CASCADE)
-        avatar = models.ImageField( default='default.jpg', upload_to='profile_pics')
+        avatar = models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics')
         bio = models.TextField(max_length=500, blank=True)
 
         def clean(self):

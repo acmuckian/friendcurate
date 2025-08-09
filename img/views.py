@@ -111,8 +111,8 @@ def submit_image(request):
     if request.method == "POST":
         form = forms.CreateImg(request.POST, request.FILES)
         if form.is_valid():
-            newimg.status = "published"
             newimg = form.save(commit=False)
+            newimg.status = "published"
             newimg.author = request.user
             if not newimg.slug:
                 newimg.slug = slugify(newimg.title)
