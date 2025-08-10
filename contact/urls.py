@@ -8,4 +8,5 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("subscribe", views.subscribe, name="subscribe"),
+    path("contact_us", views.contact_us, name="contact")
 ]

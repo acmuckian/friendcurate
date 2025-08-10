@@ -60,7 +60,7 @@ The colour scheme for Friendcurate was selected from an image of a charcoal sket
 
 ### Typography 
 
-The Friendcurate logo is in the ![Rubik 80s Fade](https://fonts.google.com/specimen/Rubik+80s+Fade) font. The main header font for the main headers is ![Cabin Sketch](https://fonts.google.com/specimen/Cabin+Sketch) - to reflect the art element of the website. Some of the headings use the ![Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) to give a cool, retro feel to the website and accompanies the Rubik 80s Fade font. 
+The Friendcurate logo is in the [Rubik 80s Fade](https://fonts.google.com/specimen/Rubik+80s+Fade) font. The main header font for the main headers is [Cabin Sketch](https://fonts.google.com/specimen/Cabin+Sketch) - to reflect the art element of the website. Some of the headings use the [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) to give a cool, retro feel to the website and accompanies the Rubik 80s Fade font. 
 
 ### Wireframes 
 
@@ -144,6 +144,7 @@ The repository can also be cloned for local deployment. To clone the repository:
 3. Give the app a name which is unique, and select the location for Common Runtime. I selected **Europe** where I am based. 
 4. Click create app. 
 5. After this, in the Config Vars, click reveal and insert the following variables:
+
 | Key                   | Value                        |
 |-----------------------|------------------------------|
 | DATABASE_URL          | user's own value             |
@@ -151,19 +152,24 @@ The repository can also be cloned for local deployment. To clone the repository:
 | CLOUDINARY_URL        | user's own value             |
 | SECRET_KEY            | user's own value             |
 
-6. Ensure procfile is in the repository as required by Heroku - install with ```echo web: gunicorn app_name.wsgi > Procfile
+6. Ensure procfile is in the repository as required by Heroku - install with 
+`echo web: gunicorn app_name.wsgi > Procfile`
+
 (instead of app_name, put in your own app's name)
-7. install dependencies using ```pip install -r requirements.txt
+7. install dependencies using 
+`pip install -r requirements.txt`
 8. Select Automatic Deployment from the Heroku app to connect to your repository - alternatively, you can deploy manually via Heroku CLI or GitHub integration. 
 9. Manual deployment can be done as follows:
-- log in to Heroku from the terminal ```heroku login -i 
-- set the heroku remote (replace app_name with name of your heroku app) ```heroku git:remote -a app_name 
-- add, commit and push changes to github 
-```git add .
-```git commit -m 'commit message' 
-``` git push heroku main
+- log in to Heroku from the terminal 
+` heroku login -i `
+- set the heroku remote (replace app_name with name of your heroku app) 
+``` heroku git:remote -a app_name 
 ```
-- deploy to heroku by pushing the code: ```git push heroku main
+- add, commit and push changes to github 
+``` git add . git commit -m 'commit message'  git push heroku main ```
+- deploy to heroku by pushing the code: 
+`git push heroku main`
+
 
 ## Testing 
 
