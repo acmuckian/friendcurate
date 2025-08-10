@@ -82,12 +82,14 @@ footer.footer {
     box-sizing: border-box;
 }
 
-footer a {
-    color:#fcfcf4;
+footer.footer a,
+footer.footer a:visited,
+footer.footer a:active{
+    color:#fcfcf4 !important;
 }
 
 footer a:hover {
-    color:#D3D1C4;
+    color:#D3D1C4 !important;
 
 }
 
@@ -366,6 +368,25 @@ main {
     width:80%;
     padding:2%;
 }
+/* error page */ 
+#error {
+    background-color:#fcfcf4 !important;
+     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 2rem;
+    width:100%;
+}
+
+#errortitle {
+    font-family:var(--subtitle-font);
+}
+/* media queries */
 
 @media only screen and (max-width:320px) {
     .carousel-caption p {

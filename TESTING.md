@@ -75,9 +75,9 @@ Automated testing was performed for some of views and forms for both img and con
 |-----------------------------------------------------------------------------------------------------------------------|------------|
 | As a visitor to the site, I can create an account so I can comment on images, edit my comments and add images myself. | Yes        |
 | As a user, I can add images that other users can comment on and add to their favourites.                              |  ![screenshot of submit image page](static/images/submitimagepage.png)          |
-| As an admin, I can check images and captions, comments to make sure they are okay and up to date and approved.        |            |
+| As an admin, I can check images and captions, comments to make sure they are okay and up to date and approved.        |    ![django admin panel screenshot](static/images/djangoadminpanel.png)        |
 | As a user, I can add images to my favourites collection and to be able to view my collection.                         |  ![screenshot of favourites section](static/images/favourites-section.png)          |
-| As a user, I can sign in to the website so that I can access my account and enjoy customized features and contents.   |            |
+| As a user, I can sign in to the website so that I can access my account and enjoy customized features and contents.   |    ![screenshot of sign in page](static/images/signinpage.png)        |
 | As a user, I can sign out of the website when I finished using it for now.                                            |  ![screenshot of signout page](static/images/signoutsection.png)         |
 | As a site owner, I want to encourage visitors to become users of the website.                                         |    ![call to action banner](static/images/calltoaction.png)       |
 
@@ -179,4 +179,5 @@ Automated testing was performed for some of views and forms for both img and con
 |---------|------------|
 | The dropdown bar prevented an email from being required before the submit button was clicked for the newsletter. This bug persisted so the dropdown feature was dropped for the newsletter feature. ![dropdown feature on the newsletter](static/images/Dropdown-bug.png) | The dropdown feature was changed so the form appeared without any dropdown.   |
 | Clicking the dropdown menu on the profile expanded beyond the viewport width. | Adding the bootstrap class "dropdown-menu-end" caused it to open on the left and prevented it from expanding beyond the viewport width.           |
-|   |            |
+| The "favourite" button didn't show users when they already favourited an image.  |   Django template coding was used so when an image was favourited a different button was shown instead. ![favourited button](static/images/favouritedbutton.png)         |
+|     |           |
