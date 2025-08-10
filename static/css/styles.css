@@ -324,7 +324,13 @@ main {
 .note-editable {
     background-color: #D3D1C4 !important;
 }
-
+.note-btn .note-icon-caret,
+.note-btn .note-icon-caret svg {
+    display: none !important;
+}
+ .note-btn.dropdown-toggle::after {
+    display: none !important;
+}
 /* favourites.html */
 
 #favourite-images {

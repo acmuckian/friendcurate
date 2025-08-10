@@ -26,6 +26,16 @@
 | Mozilla |    Yes       |
 | Safari  |  Yes         |
 
+## Responsiveness 
+
+The website was tested across different browsers. It was also tested on a MacBook Pro version 12.7.6 and an iPhone 8. 
+
+The website was tested on different mobiles and tablets, including by using Google's DevTools:
+
+* Galaxy Note 20 Android 11
+* iPad iPad OS 14.7.1 
+* iPhone 11 Pro iOS 14.6
+
 ## Code Validation 
 
 ### HTML 
