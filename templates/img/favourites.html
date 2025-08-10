@@ -7,7 +7,7 @@
 <div class="d-flex flex-row gap-4" id="favourite-images">
     {% for favourite in favourite_images %}
     <div class="card">
-        <img src="{{ favourite.image.url }}" class="card-img-top" alt="{{ favourite.caption }}">
+        <img src="{{ favourite.image.url }}" loading="lazy" class="card-img-top" alt="{{ favourite.caption }}">
         <div class="card-body">
             <h5 class="card-title">{{ favourite.title }} by {{ favourite.author }}</h5>
             <a href="{% url 'img_detail' favourite.slug %}" class="btn btn-primary">View Details</a>

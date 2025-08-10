@@ -18,14 +18,19 @@ def contact_us(request):
     """
     contact_form = ContactForm()
     subscribe_form = NewsletterForm()
-    return render(
-        request,
-        "contact/contact.html",
-        {
-            "contact_form": contact_form, 
-            "subscribe_form": subscribe_form
-        }
-    )
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Thanks for contacting us!")
+            return redirect(reverse('contact') + '?contacted=1')
+    else:
+        form = ContactForm()
+    context = {
+         "contact_form": form,
+         "subscribe_form": NewsletterForm()
+               }
+    return render(request, "contact/contact.html", context)
 
 
 def subscribe(request):
@@ -43,5 +48,6 @@ def subscribe(request):
             return redirect(reverse('contact') + '?subscribed=1')
     else:
         form = NewsletterForm()
-    context = {"form": form}
+    context = {"contact_form": ContactForm(),
+               "subscribe_form": form}
     return render(request, "index.html", context)

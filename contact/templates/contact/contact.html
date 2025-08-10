@@ -29,11 +29,9 @@
     <form method="post" action="{% url 'contact' %}">
         {{ contact_form | crispy }}
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#contactModal">Submit</button>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
     </form>
 </div>
-
-{% endblock content %}
 <!--- subscribe modal -->
 <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -69,8 +67,16 @@
     </div>
 </div>
 
-{% if request.GET.subscribed == 1 %}
-<p>DEBUG: Subscribed param detected</p>
+{% if request.GET.contacted == "1" %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = new bootstrap.Modal(document.getElementById('contactModal'));
+    modal.show();
+  });
+</script>
+{% endif %}
+
+{% if request.GET.subscribed == "1" %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
@@ -78,3 +84,5 @@
   });
 </script>
 {% endif %}
+
+{% endblock content %}

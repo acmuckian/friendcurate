@@ -12,7 +12,7 @@
 
 body {
     font-family: var(--body-font), system-ui, sans-serif;
-    background-image: url("/static/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg") !important;
+    background-image: url("/static/images/olga-thelavart-vS3idIiYxX0-unsplash.cfe0ce5c0f98.webp") !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

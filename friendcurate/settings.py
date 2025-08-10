@@ -25,7 +25,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@=vb*25kw%f*4x0!^0$khjqe4t(4vumr)mp@)u^kgg3*lz55vq'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -143,9 +144,9 @@ USE_I18N = True
 USE_TZ = True
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dwr5gaf1j',
-    'API_KEY': '295788533645725',
-    'API_SECRET': 'byKKWNjjhXeYSM4Z_zBsm37Chig',
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
