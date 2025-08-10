@@ -71,12 +71,28 @@ footer {
     padding-top: 10px;
 }
 
+footer.footer {
+    width: 100vw !important;
+    left: 0;
+    right: 0;
+    position: relative;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
 footer a {
     color:#fcfcf4;
 }
 
 footer a:hover {
     color:#D3D1C4;
+
+}
+
+#newsletterbutton.btn-outline-secondary {
+    color:#fcfcf4 !important;
 
 }
 /* on the index.html page */
@@ -216,7 +232,11 @@ footer a:hover {
     box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
     color: #4a4a3b !important;
 }
-
+/* login/signin page css */ 
+#signin {
+     background-color: rgba(176, 176, 176, 0.2) !important;
+    padding:2rem;
+}
 /* logout page css */
 #logout {
     background-color: rgba(176, 176, 176, 0.482);
@@ -323,10 +343,26 @@ main {
     list-style-type:none; 
 
 }
+#signupheader {
+    background-color:#D3D1C4 !important;
+    padding: 2rem;
+}
+
+#signup_form {
+    background-color: rgba(176, 176, 176, 0.2) !important;
+    padding:2rem;
+}
 /* contact.html css */
 
 .contact-us {
     background-color: rgba(40, 40, 40, 0.2);
     width:80%;
     padding:2%;
+}
+
+@media only screen and (max-width:320px) {
+    .carousel-caption p {
+        display:none;
+    }
+
 }

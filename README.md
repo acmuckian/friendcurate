@@ -1,6 +1,10 @@
 # Friendcurate 
 
-![Friendcurate on amiresponsive.dev](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Friendcurate")
+![Friendcurate on amiresponsive.dev](static/images/friendcurate%20-%20amiresponsive.png)
+
+[Vist the live website.](https://friendcurate-e7f12440f18f.herokuapp.com/)
+
+Friendcurate is a community platform for art lovers to join, and share artworks where other users can comment and favourite such artworks. 
 
 ## Features 
 
@@ -31,6 +35,8 @@ When logged in, the user will see the submit button to submit an image, the Home
 
 ### Image Display Page 
 
+![image display screenshot](static/images/imagedisplaypage.png)
+
 This is the page for a single image posted; it will show the user when the image was uploaded, the caption, the title of the image. Logged in users are allowed to post comments and add the image to their favourites by bookmarking it. 
 
 ### Submit Image Page 
@@ -39,7 +45,15 @@ This is the page for a single image posted; it will show the user when the image
 
 This page allows a logged-in user to upload an image to the website and give it a title as well as a caption. 
 
+### Contact Page 
+
+![contact page screenshot](static/images/contactuspage.png)
+
+This page allows a visitor or a user to subscribe to the newsletter as well as contact the site owners with feedback. 
+
 ### Login Page 
+
+![login page screenshot](static/images/signinpage.png)
 
 This is the page to allow a user to log in by entering their email and password.
 
@@ -49,6 +63,9 @@ This is a page to confirm with the user if they want to log out or not.
 
 ### Signup Page 
 
+![sign up page screenshot](static/images/signuppage.png)
+
+This is for visitors to register for an account with the website. 
 
 ## UX 
 
@@ -66,23 +83,27 @@ The Friendcurate logo is in the [Rubik 80s Fade](https://fonts.google.com/specim
 
 _Main Page_ 
 
-* https://wireframe.cc/kxj2er - main page desktop
-
-* https://wireframe.cc/rukpGh - main page ipad
-
-* https://wireframe.cc/1K0dqB - main page mobile
+* [main page desktop](https://wireframe.cc/kxj2er)
+* [main page ipad](https://wireframe.cc/rukpGh)
+* [main page mobile](https://wireframe.cc/1K0dqB)
 
 _Favourites Page_
 
-* https://wireframe.cc/B0jAuX  favourites desktop
-* https://wireframe.cc/8G19GM  - favourites tablet
-favourites mobile
+* [favourites desktop](https://wireframe.cc/B0jAuX)
+* [favourites tablet](https://wireframe.cc/8G19GM)
+* [favourites mobile](https://wireframe.cc/EpAQln)
+
+_Contact Page_
+
+* [contact page desktop](https://wireframe.cc/g8eHLm)
+* [contact page tablet](https://wireframe.cc/SGlbw4)
+* [contact page mobile](https://wireframe.cc/LlWFUj)
 
 _Profile Page_ 
 
-* https://wireframe.cc/b7zDhR - profile desktop
-* https://wireframe.cc/yqJ1Wa - profile tablet
-* https://wireframe.cc/ccvz3a - profile mobile
+* [profile desktop](https://wireframe.cc/b7zDhR)
+* [profile tablet](https://wireframe.cc/yqJ1Wa) 
+* [profile mobile](https://wireframe.cc/ccvz3a)
 
 ### Data Schema 
 

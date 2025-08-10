@@ -13,6 +13,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Image sharing boards for like-minded artists">
+  <meta name="keywords" content="image board, artist, visual arts">
     <title>{% block title %}FriendCurate{% endblock %}</title>
     {% load static %}
     <!-- summernote -->
@@ -104,7 +106,7 @@
                     <form method="post" action="{% url 'subscribe' %}">
                         {% csrf_token %}
                         {{ subscribe_form|crispy }}
-                        <button type="submit" class="btn btn-outline-secondary">Subscribe</button>
+                        <button type="submit" class="btn btn-outline-secondary" id="newsletterbutton">Subscribe</button>
                     </form>
 
                 </div>
