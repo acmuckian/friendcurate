@@ -32,7 +32,15 @@
 
 [HTML W3C Validator](https://validator.w3.org/nu/) was used to validate the HTML files. 
 
-* [Home Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2F) - no errors found 
+* [Home Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2F) - no errors/warnings found 
+* [Image Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2Fcabernet) - some of the images had no errors/warnings to show. 
+* [Submit Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2Fsubmit) - no errors/warnings found but one info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+* [Contact Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2Fcontact%2Fcontact_us) - no errors/warnings found
+* [Favourites Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2Ffavourites) - no errors/warnings found but one info: Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.
+* [Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2Faccounts%2Flogin) - no errors/warnings to show 
+* [Sign Up Page]() - some of the errors came from Django's built-in password validation text and I did not want to interfere with the functionality of the website, so these were left as is. 
+![screenshot of error](static/images/htmlerrorsignup.png)
+* [Logout Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2Faccounts%2Flogout) - no errors/warnings to show 
 
 ### Javascript 
 
