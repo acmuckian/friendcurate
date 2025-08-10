@@ -20,7 +20,7 @@
     {% for img in img_list %}
     {% if img.slug %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="10000">
-      <img src="{{ img.image.url|add:'?h_400' }}"loading="lazy" class="d-block w-100" alt="{{ img.title }}">
+      <img src="{{ img.image.url|add:'?f_auto,q_auto,h_400' }}"loading="lazy" class="d-block w-100" alt="{{ img.title }}">
       <div class="carousel-caption d-md-block">
         <h5><a href="{% url 'img_detail' img.slug %}">{{ img.title }} by {{ img.author }}</a></h5>
         <p class="carouselcaption">{{ img.caption | safe }}</p>
@@ -48,7 +48,7 @@
     {% if img.slug %}
     <div class="col-md-4 mb-4">
       <div class="card">
-        <img src="{{ img.image.url }}" loading="lazy" class="card-img-top" alt="{{ img.title }}">
+        <img src="{{ img.image.url|add:'?f_auto,q_auto' }}" loading="lazy" class="card-img-top" alt="{{ img.title }}">
         <div class="card-body">
           <h5 class="card-title">{{ img.title }}</h5>
           <p class="card-text"><small class="text-muted">by {{ img.author }}</small></p>
