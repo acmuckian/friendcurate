@@ -36,19 +36,25 @@ def img_detail(request, slug):
     :template:`img/single.html`
     """
     queryset = Img.objects.filter(status='published')
-    post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.all().order_by('-created_on')
-    comment_count = post.comments.filter(approved=True).count()
+    img = get_object_or_404(queryset, slug=slug)
+    favourite_ids = []
+    comments = img.comments.all().order_by('-created_on')
+    comment_count = img.comments.filter(approved=True).count()
     comment_form = CommentForm()
     edit_comment_id = request.GET.get('edit_comment')
     edit_comment = None
     edit_form = None
-
+    if request.user.is_authenticated:
+        favourite_ids = request.user.favourite.values_list('id', flat=True)
+    context = {
+        'img': img,
+        'favourite_ids': favourite_ids,
+    }
     if edit_comment_id:
         try:
             edit_comment = Comment.objects.get(
                 pk=edit_comment_id,
-                post=post,
+                img=img,
                 author=request.user
                 )
             edit_form = CommentForm(instance=edit_comment)
@@ -60,18 +66,19 @@ def img_detail(request, slug):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.post = post
+            comment.img = img
             comment.save()
             return redirect('img_detail', slug=slug)
     return render(
         request,
         "img/single.html",
         {
-            "img": post,
+            "img": img,
             "comments": comments,
             "comment_form": comment_form,
             "edit_comment": edit_comment,
             "edit_form": edit_form,
+            "favourite_ids": favourite_ids,
         },
     )
 
@@ -216,8 +223,7 @@ def add_favourite(request, id):
         img.favourites.add(request.user)
         messages.add_message(request, messages.SUCCESS, 'Favourite added!')
     return redirect('img_detail', slug=img.slug)
-
-
+    
 @login_required
 def my_favourites(request):
     """

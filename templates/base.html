@@ -66,8 +66,13 @@
                 <li class="nav-item dropdown" id="profile-dropdown">
                     <a href="{% url 'profile' user.id %}" class="nav-link dropdown-toggle avatar-dropdown"
                         data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                        {% if user.profile.avatar %}
                         <img class="navbar-icon" loading="lazy" id="navbar-avatar" src="{{user.profile.avatar.url}}"
                             style="height:70px;">
+                            {% else %}
+                            <img src="media/profile_pics/default.jpg" alt="Default Avatar" loading="lazy" id="navbar-avatar"
+                            style="height:70px;">
+                            {% endif %}
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="{% url 'profile' user.id %}">Profile</a>
                             <a class="dropdown-item" href="{% url 'my_favourites' %}">Favourites</a>

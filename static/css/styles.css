@@ -232,6 +232,13 @@ footer a:hover {
     box-shadow: 1px 1px 0px 0px #636354, 2px 2px 0px 0px #636354, 3px 3px 0px 0px #636354, 4px 4px 0px 0px #636354, 5px 5px 0px 0px #636354 !important;
     color: #4a4a3b !important;
 }
+
+.disabled-link {
+    pointer-events: none;
+    opacity: 0.65;
+    background-color:#666;
+    cursor: not-allowed;
+}
 /* login/signin page css */ 
 #signin {
      background-color: rgba(176, 176, 176, 0.2) !important;
