@@ -17,7 +17,7 @@ def contact_us(request):
     :template:`contact/contact.html`
     """
     contact_form = ContactForm()
-    subscribe_form = NewsletterForm()
+    subscribe_form = NewsletterForm(prefix="contact_subscribe")
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -51,3 +51,4 @@ def subscribe(request):
     context = {"contact_form": ContactForm(),
                "subscribe_form": form}
     return render(request, "index.html", context)
+

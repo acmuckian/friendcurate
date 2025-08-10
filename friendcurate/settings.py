@@ -89,6 +89,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'friendcurate.context_processors.subscribe_form',
+                'contact.context_processors.footer_subscribe_form',
             ],
         },
     },

@@ -30,6 +30,10 @@
 
 ### HTML 
 
+[HTML W3C Validator](https://validator.w3.org/nu/) was used to validate the HTML files. 
+
+* [Home Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffriendcurate-e7f12440f18f.herokuapp.com%2F) - no errors found 
+
 ### Javascript 
 
 [JSHint](https://jshint.com/) was used to check the validity of the javascript on comments.js and img_delete.js - comments.js had no errors once /* global bootstrap */ was used so the JSHint warning about bootstrap being an undeclared variable left. This was the same for img_delete.js. 
