@@ -62,7 +62,7 @@
                 <li class="nav-item dropdown" id="profile-dropdown">
                     <a href="{% url 'profile' user.id %}" class="nav-link dropdown-toggle avatar-dropdown"
                         data-bs-toggle="dropdown" role="button" aria-expanded="false">
-                        <img class="navbar-icon" loading="lazy" id="navbar-avatar" loading="lazy" src="{{user.profile.avatar.url}}"
+                        <img class="navbar-icon" loading="lazy" id="navbar-avatar" src="{{user.profile.avatar.url}}"
                             style="height:70px;">
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="{% url 'profile' user.id %}">Profile</a>

@@ -364,5 +364,8 @@ main {
     .carousel-caption p {
         display:none;
     }
+    .carouselcaption {
+        display:none;
+    }
 
 }
