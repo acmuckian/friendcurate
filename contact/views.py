@@ -16,18 +16,18 @@ def contact_us(request):
     **Template:**
     :template:`contact/contact.html`
     """
-    contact_form = ContactForm()
-    subscribe_form = NewsletterForm(prefix="contact_subscribe")
+    contact_form = ContactForm(prefix="contact")
     if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
             messages.success(request, "Thanks for contacting us!")
             return redirect(reverse('contact') + '?contacted=1')
     else:
-        form = ContactForm()
+        contact_form = ContactForm(prefix="contact")
+    subscribe_form = NewsletterForm(prefix="contact_subscribe")
     context = {
-         "contact_form": form,
+         "contact_form": contact_form,
          "subscribe_form": NewsletterForm()
                }
     return render(request, "contact/contact.html", context)
@@ -40,15 +40,23 @@ def subscribe(request):
     ``form``
         An instance of :form: `contact.NewsletterForm`.
     """
+    form = NewsletterForm(request.POST or None, prefix="footer_subscribe")
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "You subscribed to our newsletter!")
+        return redirect(reverse('contact') + '?subscribed=1')
+    # If not valid, try the other prefix
     if request.method == "POST":
-        form = NewsletterForm(request.POST)
+        form = NewsletterForm(request.POST, prefix="contact_subscribe")
         if form.is_valid():
             form.save()
             messages.success(request, "You subscribed to our newsletter!")
             return redirect(reverse('contact') + '?subscribed=1')
-    else:
-        form = NewsletterForm()
-    context = {"contact_form": ContactForm(),
-               "subscribe_form": form}
-    return render(request, "index.html", context)
-
+    # Default forms for rendering
+    contact_form = ContactForm()
+    subscribe_form = NewsletterForm(prefix="contact_subscribe")
+    context = {
+        "contact_form": contact_form,
+        "subscribe_form": subscribe_form,
+    }
+    return render(request, "contact/contact.html", context)
