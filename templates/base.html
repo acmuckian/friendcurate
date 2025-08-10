@@ -17,6 +17,8 @@
     <meta name="keywords" content="image board, artist, visual arts">
     <title>{% block title %}FriendCurate{% endblock %}</title>
     {% load static %}
+    <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+
     <link href="{% static 'css/summernote-lite.min.css' %}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
         <link href="{% static 'css/summernote-lite.min.css' %}" rel="stylesheet">
@@ -27,7 +29,7 @@
     <!-- css-->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <!-- google fonts css -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- google fonts css -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -35,7 +37,8 @@
         rel="stylesheet">
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        media="print" onload="this.media='all'">
 
 </head>
 
@@ -72,10 +75,10 @@
                         {% if user.profile.avatar %}
                         <img class="navbar-icon" loading="lazy" id="navbar-avatar" src="{{user.profile.avatar.url}}"
                             style="height:70px;">
-                            {% else %}
-                            <img src="media/profile_pics/default.jpg" alt="Default Avatar" loading="lazy" id="navbar-avatar"
+                        {% else %}
+                        <img src="media/profile_pics/default.jpg" alt="Default Avatar" loading="lazy" id="navbar-avatar"
                             style="height:70px;">
-                            {% endif %}
+                        {% endif %}
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="{% url 'profile' user.id %}">Profile</a>
                             <a class="dropdown-item" href="{% url 'my_favourites' %}">Favourites</a>
@@ -126,7 +129,7 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
 
