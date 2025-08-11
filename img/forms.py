@@ -48,6 +48,16 @@ class CreateImg(forms.ModelForm):
         model = Img
         fields = ["title", "image", "caption", ]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        instance = kwargs.get('instance')
+        self.fields['title'].widget.attrs['placeholder'] = (
+            instance.title if instance and instance.title else 'Title'
+        )
+        self.fields['caption'].widget.attrs['placeholder'] = (
+            instance.caption if instance and instance.caption else 'Caption'
+        )
+
     def clean_caption(self):
         data = self.cleaned_data.get('caption', '').strip()
         import re

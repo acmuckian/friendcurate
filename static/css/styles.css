@@ -337,9 +337,7 @@ main {
 .note-btn .note-icon-caret svg {
     display: none !important;
 }
- .note-btn.dropdown-toggle::after {
-    display: none !important;
-}
+
 /* favourites.html */
 
 #favourite-images {

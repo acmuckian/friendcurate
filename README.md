@@ -90,8 +90,8 @@ _Main Page_
 _Image Page_
 
 * [image page desktop](https://wireframe.cc/uvEuhR)
-* [image page tablet]()
-* [image page mobile]()
+* [image page tablet](https://wireframe.cc/GXKa5m)
+* [image page mobile](https://wireframe.cc/G0QL0L)
 
 _Favourites Page_
 

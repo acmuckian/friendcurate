@@ -194,4 +194,8 @@ Automated testing was performed for some of views and forms for both img and con
 | The dropdown bar prevented an email from being required before the submit button was clicked for the newsletter. This bug persisted so the dropdown feature was dropped for the newsletter feature. ![dropdown feature on the newsletter](static/images/Dropdown-bug.png) | The dropdown feature was changed so the form appeared without any dropdown.   |
 | Clicking the dropdown menu on the profile expanded beyond the viewport width. | Adding the bootstrap class "dropdown-menu-end" caused it to open on the left and prevented it from expanding beyond the viewport width.           |
 | The "favourite" button didn't show users when they already favourited an image.  |   Django template coding was used so when an image was favourited a different button was shown instead. ![favourited button](static/images/favouritedbutton.png)         |
-|     |           |
+|   When editing, the title nor caption of the image appears. |    Added functionality to allow the title to appear as the title before but possibly due to Summernote rich text editor, the caption disappears. This is still unresolved.       |
+
+### Limitations
+
+One current limitation is that favourites cannot be unfavourited for now.

@@ -14,8 +14,7 @@
                     <p class="text-muted">by {{ img.author }}</p>
                     {% if user.is_authenticated %}
                     {% if img.id in favourite_ids %}
-                    <a href="{% url 'add_favourite' img.id %}" class="btn btn-primary disabled-link" tabindex="-1"
-                        aria-disabled="true">Favourited </a>
+                    <a href="{% url 'add_favourite' img.id %}" class="btn btn-primary">Unfavourite </a>
                     {% else %}
                     <a href="{% url 'add_favourite' img.id %}" class="btn btn-primary"> &#9733; Favourite &#9733;</a>
                     {% endif %}
