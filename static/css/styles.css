@@ -97,6 +97,11 @@ footer a:hover {
     color:#fcfcf4 !important;
 
 }
+
+.pagination {
+    padding:2rem;
+    margin-bottom:2rem;
+}
 /* on the index.html page */
 
 #cta {
