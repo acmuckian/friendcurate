@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # if .env.py file exists, load it
-if os.path.exists('.env.py'):
+if os.path.exists('env.py'):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
