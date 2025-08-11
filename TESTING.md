@@ -7,8 +7,8 @@
 - [Code Validation](#code-validation)
 
 - [Testing](#testing)
-  - [Manual Testing](#manual-testing-bdd)
   - [Automated Testing](#automated-testing)
+   - [Manual Testing](#manual-testing)
   - [Features Testing](#features-testing)
 
 
@@ -17,6 +17,10 @@
 ### Google Lighthouse Performance
 
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to test the performance of the website.
+
+![screenshot of google lighthouse desktop score]()
+
+The main limitation was file sizes - particularly since this is an image board website since users can upload files which are quite large. In future, attempts will be made to limit 
 
 ## Browser Compatibility
 
@@ -97,7 +101,7 @@ Automated testing was performed for some of views and forms for both img and con
 |----------------------------------------------------------------|------------|
 | **Feature**                                                    | **Status** |
 | Clicking   Friendcurate shows home page.                       | Yes        |
-| If   signed out - Home, Login, Register show on navbar         | Yes        |
+| If   signed out - Home, Contact, Login, Register show on navbar         | Yes        |
 | If   signed out - banner to join Friendcurate appears          | Yes        |
 | Clicking   login brings to login page                          | Yes        |
 | Clicking   register brings to register page                    | Yes        |

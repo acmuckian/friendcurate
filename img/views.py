@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
 from .models import Img, Comment, User
-from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
+from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm, CreateImg
 from . import forms
 
 
@@ -17,6 +17,7 @@ class ImgList(generic.ListView):
     queryset = Img.objects.exclude(slug__isnull=True).exclude(slug__exact='')
     template_name = "img/index.html"
     paginate_by = 6
+    context_object_name = 'img_list' 
 
 
 def img_detail(request, slug):
@@ -39,7 +40,6 @@ def img_detail(request, slug):
     img = get_object_or_404(queryset, slug=slug)
     favourite_ids = []
     comments = img.comments.all().order_by('-created_on')
-    comment_count = img.comments.filter(approved=True).count()
     comment_form = CommentForm()
     edit_comment_id = request.GET.get('edit_comment')
     edit_comment = None
@@ -66,7 +66,7 @@ def img_detail(request, slug):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
-            comment.img = img
+            comment.post = img
             comment.save()
             return redirect('img_detail', slug=slug)
     return render(
@@ -82,8 +82,8 @@ def img_detail(request, slug):
         },
     )
 
-
-def img_delete(request, slug):
+@login_required
+def img_delete(request, id):
     """
     Deletes an image.
 
@@ -92,15 +92,54 @@ def img_delete(request, slug):
         An instance of :model:`img.Img`.
     """
     queryset = Img.objects.filter(status="published")
-    img = get_object_or_404(queryset, slug=slug)
-    if img.author == request.user:
-        img.delete()
-        messages.add_message(request, messages.SUCCESS, 'Image removed!')
-        return HttpResponseRedirect(reverse('home'))
+    img = get_object_or_404(queryset, id=id)
+    if request.method == "POST":
+        if img.author == request.user:
+            img.delete()
+            messages.add_message(request, messages.SUCCESS, 'Image removed!')
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'You can only delete your own images!')
+            return redirect('img_detail', slug=img.slug)
     else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own images!')
+        return render(request, "img/confirm_delete.html", {"img": img})
+
+@login_required 
+def edit_image(request, id):
+    """
+    Allows a logged-in user to edit an image to the site.
+
+        **Context**
+    ``form``
+        An instance of :form:`img.form`.
+        **Template:**
+    :template:`img/submit.html`
+    Allows a logged-in user to edit an image.
+    """
+@login_required 
+def edit_image(request, id):
+    """
+    Allows a logged-in user to edit an image.
+    """
+    queryset = Img.objects.filter(status='published')
+    img = get_object_or_404(queryset, id=id)
+
+    if img.author != request.user:
+        messages.error(request, "You can only edit your own images!")
         return redirect('img_detail', slug=img.slug)
+
+    if request.method == "POST":
+        form = CreateImg(request.POST, request.FILES, instance=img)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Image updated!")
+            return redirect('img_detail', slug=img.slug)
+        else:
+            messages.error(request, "Error updating image!")
+    else:
+        form = CreateImg(instance=img)
+    return render(request, "img/submit.html", {"form": form, "img": img, "action": "edit"})
 
 
 @login_required
@@ -134,7 +173,7 @@ def submit_image(request):
             return redirect("img_detail", slug=newimg.slug)
     else:
         form = forms.CreateImg()
-    return render(request, "img/submit.html", {"form": form})
+    return render(request, "img/submit.html", {"form": form, "action":"submit"})
 
 
 def comment_edit(request, slug, comment_id):

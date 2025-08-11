@@ -235,6 +235,10 @@ footer a:hover {
     color: #4a4a3b !important;
 }
 
+#imagedelete {
+    background-color:darkred !important;
+}
+
 .disabled-link {
     pointer-events: none;
     opacity: 0.65;

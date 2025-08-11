@@ -185,8 +185,7 @@ The repository can also be cloned for local deployment. To clone the repository:
 - log in to Heroku from the terminal 
 ` heroku login -i `
 - set the heroku remote (replace app_name with name of your heroku app) 
-``` heroku git:remote -a app_name 
-```
+` heroku git:remote -a app_name `
 - add, commit and push changes to github 
 ``` git add . git commit -m 'commit message'  git push heroku main ```
 - deploy to heroku by pushing the code: 
