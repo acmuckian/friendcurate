@@ -2,33 +2,50 @@
 {% load static %}
 {% block content %}
 
+<form method="POST" enctype="multipart/form-data" class="card" id="profile-form">
+	{% csrf_token %}
 
-<div class="center">
-	<form method="POST" enctype="multipart/form-data" class="card" id="profile-form">
-		{% csrf_token %}
+	{% if user.profile %}
+	<div id="profile-bg">
+		<img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar" accept=".jpg,.jpeg,.png" />
+		{% endif %}
 
-		{% if user.profile %}
-		<div id="profile-bg">
-			<img src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar" accept=".jpg,.jpeg,.png" />
-			{% endif %}
-
-			<h2 class="text-center">{{ user.username | title }}</h2>
-			<p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
-			<p class="text-center">{{ user.profile.bio }}</p>
-			<hr>
-		</div>
-		<h3 id="profile-settings">settings:</h3>
-		<label for="email">Email Address:</label>
-		<input type="email" id="email" name="email" value="{{user.email}}" />
+		<h2 class="text-center">{{ user.username | title }}</h2>
+		<p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
+		<p class="text-center">{{ user.profile.bio }}</p>
+		<hr>
+	</div>
+	<h3 id="profile-settings">settings:</h3>
+	<label for="email">Email Address:</label>
+	<input type="email" id="email" name="email" value="{{user.email}}" />
 
 
-		<label for="avatar">Avatar:</label>
-		<input type="file" name="avatar" id="avatar">
-		<label for="bio">Bio:</label>
-		<textarea id="bio" name="bio" value="{{user.profile.bio}}"></textarea>
+	<label for="avatar">Avatar:</label>
+	<input type="file" name="avatar" id="avatar">
+	<label for="bio">Bio:</label>
+	<textarea id="bio" name="bio" value="{{user.profile.bio}}"></textarea>
 
-		<button type="submit" class="btn btn-primary full-width">Update Profile</button>
-	</form>
+	<button type="submit" class="btn btn-primary full-width">Update Profile</button>
+</form>
 </div>
+<div class="mx-auto justify-content-center">
+	<h2> {{ user }}'s images </h2>
+	<div class="center">
+		{% for img in user_images %}
+		{% if img.slug %}
+		<div class="col-md-12 mb-4">
+			<div class="card">
+				<img src="{{ img.image.url|add:'?f_auto,q_auto' }}" loading="lazy" class="card-img-top"
+					alt="{{ img.title }}">
+				<div class="card-body">
+					<h5 class="card-title">{{ img.title }}</h5>
+					<p class="card-text"><small class="text-muted">by {{ img.author }}</small></p>
+					<a href="{% url 'img_detail' img.slug %}" class="btn btn-primary">View Details</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+	{% endfor %}
 
-{% endblock content %}
+	{% endblock content %}

@@ -308,6 +308,7 @@ def profile(request, user_id):
         :template:`user/profile.html`
     """
     user = get_object_or_404(User, pk=user_id)
+    user_images = Img.objects.filter(author=request.user)
     if not hasattr(user, 'profile'):
         from .models import Profile
         Profile.objects.create(user=user)
@@ -336,6 +337,7 @@ def profile(request, user_id):
 
     context = {
         'user_form': user_form,
-        'profile_form': profile_form
+        'profile_form': profile_form,
+        'user_images': user_images,
     }
-    return render(request, 'users/profile.html', context)
+    return render(request, 'users/profile.html',  context)

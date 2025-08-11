@@ -89,7 +89,7 @@ _Main Page_
 
 _Image Page_
 
-* [image page desktop]()
+* [image page desktop](https://wireframe.cc/uvEuhR)
 * [image page tablet]()
 * [image page mobile]()
 
