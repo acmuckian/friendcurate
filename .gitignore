@@ -1,2 +1,35 @@
+```
+# Ignore Python-related files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+venv/
+.env/
+
+# Ignore database files
+db.sqlite3
+
+# Ignore media and static files
+media/
+staticfiles/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.so
+*.egg-info/
+
+# Ignore environment variable file
 .env.py
+
+# macOS specific files
 .DS_Store
+```
