@@ -31,7 +31,7 @@ rcssmin==1.1.2
 requests==2.32.4
 requests-oauthlib==2.0.0
 rjsmin==1.2.2
-setuptools==80.9.0
+setuptools<81
 six==1.17.0
 sqlparse==0.5.3
 urllib3==1.26.20
