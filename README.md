@@ -84,8 +84,14 @@ The Friendcurate logo is in the [Rubik 80s Fade](https://fonts.google.com/specim
 _Main Page_ 
 
 * [main page desktop](https://wireframe.cc/kxj2er)
-* [main page ipad](https://wireframe.cc/rukpGh)
+* [main page tablet](https://wireframe.cc/rukpGh)
 * [main page mobile](https://wireframe.cc/1K0dqB)
+
+_Image Page_
+
+* [image page desktop]()
+* [image page tablet]()
+* [image page mobile]()
 
 _Favourites Page_
 
@@ -111,6 +117,7 @@ _Profile Page_
 [Lucidchart](https://www.lucidchart.com/pages) was for the data schema for Friendcurate which uses a relational model, as illustrated in the Entity Relationship Diagram (ERD) provided. Above is an Entity Relationship Diagram that shows the key models and their fields.
 
 
+
 ### User Stories
 
 1. As a visitor to the site, I can create an account so I can comment on images, edit my comments and add images myself.
@@ -127,6 +134,9 @@ _Profile Page_
 
 7. As a site owner, I want to encourage visitors to become users of the website. 
 
+### Agile Development 
+
+This project was managed and developed by using the Project Board and Issues section on GitHub - visit the project board [here.](https://github.com/users/acmuckian/projects/4)
 
 ## Deployment 
 

@@ -17,7 +17,7 @@ class ImgList(generic.ListView):
     queryset = Img.objects.exclude(slug__isnull=True).exclude(slug__exact='')
     template_name = "img/index.html"
     paginate_by = 6
-    context_object_name = 'img_list' 
+    context_object_name = 'img_list'
 
 
 def img_detail(request, slug):
@@ -28,8 +28,6 @@ def img_detail(request, slug):
         An instance of :model:`img.Img`.
     ``comments``
         All comments related to the img.
-    ``comment_count``
-        A count of comments related to the img.
     ``comment_form``
         An instance of :form:`img.CommentForm`.
 
@@ -82,6 +80,7 @@ def img_detail(request, slug):
         },
     )
 
+
 @login_required
 def img_delete(request, id):
     """
@@ -105,7 +104,8 @@ def img_delete(request, id):
     else:
         return render(request, "img/confirm_delete.html", {"img": img})
 
-@login_required 
+
+@login_required
 def edit_image(request, id):
     """
     Allows a logged-in user to edit an image to the site.
@@ -117,7 +117,9 @@ def edit_image(request, id):
     :template:`img/submit.html`
     Allows a logged-in user to edit an image.
     """
-@login_required 
+
+
+@login_required
 def edit_image(request, id):
     """
     Allows a logged-in user to edit an image.
@@ -139,7 +141,11 @@ def edit_image(request, id):
             messages.error(request, "Error updating image!")
     else:
         form = CreateImg(instance=img)
-    return render(request, "img/submit.html", {"form": form, "img": img, "action": "edit"})
+    return render(request, "img/submit.html", {
+        "form": form,
+        "img": img,
+        "action": "edit"
+        })
 
 
 @login_required
@@ -168,12 +174,14 @@ def submit_image(request):
                 newimg.slug = f"{original_slug}-{counter}"
                 counter += 1
             newimg.save()
-            newimg.save()
             messages.add_message(request, messages.SUCCESS, "Image Submitted!")
             return redirect("img_detail", slug=newimg.slug)
     else:
         form = forms.CreateImg()
-    return render(request, "img/submit.html", {"form": form, "action":"submit"})
+    return render(request, "img/submit.html", {
+        "form": form,
+        "action": "submit"
+          })
 
 
 def comment_edit(request, slug, comment_id):
@@ -262,7 +270,8 @@ def add_favourite(request, id):
         img.favourites.add(request.user)
         messages.add_message(request, messages.SUCCESS, 'Favourite added!')
     return redirect('img_detail', slug=img.slug)
-    
+
+
 @login_required
 def my_favourites(request):
     """
